@@ -1,0 +1,102 @@
+// ViewMatches.scss
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  .formMatches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.384);
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 4%;
+  border-radius: 5%;
+    
+  
+  .labelMatches {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+    select,
+    input[type="number"] {
+      width: 50%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid rgb(51, 69, 130);
+      margin-bottom: 10px;
+    }
+    .inputMatches {
+      width: 50%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid rgb(51, 69, 130);
+      margin-bottom: 10px;
+    }
+  
+    button[type="submit"] {
+      display: block;
+      margin-bottom: 20px;
+      width: 20%;
+      padding: 10px;
+      background-color: rgb(51, 69, 130);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+  
+  .user-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style-type: none;
+    padding-left: 10%;
+  
+    .user-card {
+      width: 300px;
+      height: 400px;
+      padding: 1%;
+      margin: 30px;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 10px;
+      border-radius: 25px;
+      box-sizing: border-box;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      position: relative; /* Add this property to make the flag positioned relative to the card */
+      overflow: hidden; /* Add this property to hide any overflow from the flag */
+      box-shadow: 10px 10px 10px rgb(129, 123, 123);
+    }
+    
+    .user-card:hover{
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  }
+  
+  .no-users {
+    color: #999;
+    margin-top: 10px;
+  }
+  .flagMatches{
+	opacity: 0.8;
+  position: absolute; /* Add this property to position the flag absolutely within the card */
+  top: 0;
+  left: 0%;
+  width: 100%; /* Make the flag cover the entire width of the card */
+  height: 100%; /* Make the flag cover the entire height of the card */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+  border: 1px solid rgb(255, 255, 255);
+  }
+
