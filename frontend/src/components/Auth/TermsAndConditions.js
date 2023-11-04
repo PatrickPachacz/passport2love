@@ -18,9 +18,9 @@ const TermsAndConditions = ({ isOpen, onClose }) => {
         <ModalHeader>Terms and Conditions</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <p>Welcome to [Your Dating App Name]!</p>
+          <p>Welcome to Passport2Love!</p>
           <p>
-            Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using [Your App Name] (the "Service") operated by [Your Company Name] ("us", "we", or "our").
+            Please read these Terms and Conditions carefully before using Passport2Love Dating App.
           </p>
           <p>
             Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who access or use the Service.
