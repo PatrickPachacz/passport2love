@@ -55,12 +55,14 @@
 .video-and-text-container {
 	display: flex;
 	align-items: center;
+	overflow-x: auto; /* Add horizontal scrollbar if content overflows */
   }
   
   .text-container {
 	flex: 0 0 50%;
-	/* Adjust the width as needed */
 	margin-left: 20px;
+	white-space: nowrap; /* Prevent text from wrapping to the next line */
+	overflow-x: auto; /* Add horizontal scrollbar if content overflows */
   }
   
   .app-info h2 {
@@ -69,6 +71,7 @@
 	margin-right: 70px;
 	color: orange;
 	font-weight: bold;
+	white-space: nowrap; /* Prevent text from wrapping to the next line */
   }
   
   .app-info h3 {
@@ -86,10 +89,11 @@
 	margin-bottom: 100px;
 	padding-right: 60px;
   }
-
+  
   .videoglobe {
 	margin-left: 0px;
   }
+  
 
   .video-description-list {
 	display: flex;
