@@ -104,7 +104,7 @@ const Home = () => {
               <div className="download-now-container">
               <div className="download-now">
               <p>Download Now</p>
-              <div className="blank-box">Pending</div> {/* Replace with Google Play logo */}
+              <div className="blank-box"></div> {/* Replace with Google Play logo */}
               </div>
               </div>
             </section>
