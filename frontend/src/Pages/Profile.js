@@ -139,7 +139,7 @@ function Profile() {
       </div>
 
       <img
-        src="https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        src="https://cdn.pixabay.com/photo/2019/04/06/04/29/floral-4106637_1280.png"
         className="imageHome"
         alt=""
       />
@@ -147,7 +147,7 @@ function Profile() {
       <div
         className="profileInfo"
         style={{
-          maxWidth: "800px",
+          maxWidth: "1000px",
           margin: "0 auto",
           background: "black",
           padding: "20px",
