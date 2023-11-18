@@ -232,7 +232,7 @@ function SideDrawer() {
           onClick={navigateToDashboard}
           _hover={{ color: 'rgb(51, 69, 130)' }}
         >
-          <img src="./images/logoonly.png" style={{ height: '40px', width: 'auto', marginLeft: '50px' }} alt="logo" ></img>
+          <img src="./images/logo.png" style={{ height: '40px', width: 'auto', marginLeft: '50px' }} alt="logo" ></img>
           <Text
             fontSize="25px"
             fontFamily="Work sans"

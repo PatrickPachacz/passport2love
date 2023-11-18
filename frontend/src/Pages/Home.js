@@ -16,13 +16,13 @@ const Home = () => {
   return (
 
     <main className="image-container">
-      <div className="black-bar" style={{ background: 'black', height: '100px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img src="./images/logoonly.png" style={{ height: '80px', width: 'auto' }} alt="logo" />
-        <Text fontSize="2xl" color="white" marginLeft="10px">Passport2Love</Text>
+      <div className="black-bar" style={{ background: 'rgb(227, 226, 222)', height: '100px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="./images/logolarge.png" style={{ height: '80px', width: 'auto' }} alt="logo" />
+        <Text fontSize="2xl" color="black" marginRight="50px" marginLeft="40px">Passport2Love</Text>
       </div>
 
       <div className="imageWrapper">
-          <img src="./images/homeface.jpg" className="imageHome" alt="background" />
+          <img src="./images/beige.jpg" className="imageHome" alt="background" />
       </div>
 
     <Container maxW='xl' centerContent>
@@ -38,7 +38,7 @@ const Home = () => {
         
       </Box>
       <Box bg={'rgba(255, 255, 255, 0.8)'} w="100%" p={4} borderRadius="lg" color="black" borderWidth="1px" m="0 0 260px 0">
-        <Tabs variant='soft-rounded' colorScheme='orange'>
+        <Tabs variant='soft-rounded' colorScheme='gray'>
           <TabList mb="1em">
             <Tab width="50%">Login</Tab>
             <Tab width="50%">Sign up</Tab>
