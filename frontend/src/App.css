@@ -33,24 +33,17 @@
 	padding-bottom: 5%;
 	border-bottom: 1px solid #ccc;
 	color: rgb(255, 255, 255);
-	background-color: black;
+	background-color: rgb(227, 226, 222);
 	width: 100%;
   }
 
-  #app-info:not(.couple-image){
-	text-align: left;
-	
+  .centered-text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 10vh; /* This ensures the div takes the full height of the viewport */
   }
-
-  .couple-image {
-	width: 50%;
-  	height: 800px;
-  	object-fit: cover;
-	float: right;
-	border: 2px outset rgb(132, 28, 28);
-	border-image: linear-gradient(to right, orange, purple);
-	border-image-slice: 1;
-}
+  
   
 .video-and-text-container {
 	display: flex;
@@ -61,6 +54,7 @@
   .text-container {
 	flex: 0 0 50%;
 	margin-left: 20px;
+	color: gray;
 	white-space: nowrap; /* Prevent text from wrapping to the next line */
 	overflow-x: auto; /* Add horizontal scrollbar if content overflows */
   }
@@ -69,7 +63,6 @@
 	font-size: 24px;
 	margin-top: 0;
 	margin-right: 70px;
-	color: gray;
 	font-weight: bold;
 	white-space: nowrap; /* Prevent text from wrapping to the next line */
   }
@@ -77,6 +70,7 @@
   .app-info h3 {
 	font-size: 20px;
 	margin-top: 20px;
+	color: rgb(79, 70, 70);
   }
   
   .app-info ul {
@@ -116,8 +110,8 @@
   }
   
   .testimonials {
-	background-color: black;
-	color: gray;
+	background-color: rgb(227, 226, 222);
+	color: black;
 	padding: 50px;
 	font-size: 24px;
 	text-align: center;
@@ -137,24 +131,28 @@
   }
   
   .testimonial {
-	background-color: black;
-	border-left: 1px solid rgb(16, 15, 15);
-	border-right: 1px solid rgb(16, 15, 15);
-	color: white;
-	border-radius: 40px;
+	background-color: rgb(227, 226, 222);
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	color: gray;
+	border-radius: 20px; /* Reduced border-radius for a smaller look */
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-	padding: 20px;
+	padding: 10px; /* Reduced padding for a smaller look */
 	text-align: center;
-	box-sizing: border-box;
+	margin-bottom: 20px; /* Adjusted bottom margin for less space after the last paragraph */
+  }
+  
+  .testimonial p:last-child {
+	margin-bottom: 0; /* Remove the bottom margin for the last paragraph in each testimonial */
   }
   
   .testImg {
-	width: 70%;
-	max-height: 35%;
+	width: 50%; /* Adjusted the width for a smaller image */
+	max-height: 25%; /* Adjusted the max-height for a smaller image */
 	border-radius: 10%;
-	margin-left: 15%;
-	box-sizing: border-box;
+	margin-left: 25%;
   }
+  
   
   .testimonial p {
 	font-size: 18px;
@@ -199,7 +197,7 @@
   .download-now {
 	display: flex;
 	align-items: center;
-	background-color: gray;
+	background-color: rgb(227, 226, 222);
 	padding: 10px;
 	border-radius: 8px;
   }
