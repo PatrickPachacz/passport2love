@@ -28,28 +28,54 @@
   .app-info {
 	margin-top: 50px;
 	font-size: 16px;
-	display: inline-block;
-	padding-top: 5%;
-	padding-bottom: 5%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 5% 0;
 	border-bottom: 1px solid #ccc;
 	color: rgb(255, 255, 255);
 	background-color: rgb(227, 226, 222);
 	width: 100%;
+	justify-content: space-between; /* Align items to start and end of container */
   }
-
+  
   .centered-text {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 10vh; /* This ensures the div takes the full height of the viewport */
+	flex: 0 0 4%; /* Adjust the width as needed */
+	text-align: center;
+	margin-top: 20px;
   }
   
-  
-.video-and-text-container {
+  .image-montage {
 	display: flex;
-	align-items: center;
-	overflow-x: auto; /* Add horizontal scrollbar if content overflows */
+	align-items: flex-start;
+	margin-left: 20px; /* Adjust margin to move it away from the left side */
+	flex: 0 0 30%; /* Adjust the width as needed */
   }
+  
+  .montage-column,
+  .montage-center {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 20px; /* Adjust margin to move it away from the left side */
+  }
+  
+  .montage-image {
+	width: 100px;
+	height: auto;
+  }
+  
+  /* Add media query for smaller screens if needed */
+  @media only screen and (max-width: 768px) {
+	.centered-text,
+	.image-montage,
+	.montage-column,
+	.montage-center {
+	  flex: 0 0 100%; /* Adjust the width to take full width on smaller screens */
+	  margin-left: 0; /* Adjust margin for smaller screens */
+	  margin-right: 0; /* Adjust margin for smaller screens */
+	}
+  }
+  
   
   .text-container {
 	flex: 0 0 50%;
@@ -62,7 +88,6 @@
   .app-info h2 {
 	font-size: 24px;
 	margin-top: 0;
-	margin-right: 70px;
 	font-weight: bold;
 	white-space: nowrap; /* Prevent text from wrapping to the next line */
   }
