@@ -56,19 +56,21 @@ const Home = () => {
     </Container>
 
     <div className="app-info">
-        
-        <div className="video-and-text-container">
-          <video src="./images/globe.mp4" className="videoGlobe" autoPlay loop muted></video>
-          <div className="text-container">
-            <h2>Grab your passport</h2>
-            <h3>Looking for someone, somewhere? Let us help you...</h3>
-          </div>
-        </div>
-        
-      </div>
+  <div className="centered-text">
+    <Text fontSize="xl" color="black" textAlign="center">
+      P2L - International Dating App
+    </Text>
+  </div>
+  <div className="video-and-text-container">
+    <div className="text-container">
+      <h3>Looking for someone, somewhere?</h3>
+      <h2>Grab your passport...</h2>
+    </div>
+  </div>
+</div>
 
             <section class="testimonials">
-                <h2>Passport2Love - International Dating App</h2>
+                <h2>About us</h2>
                 <div class="testimonial-container">
                     <div class="testimonial">
                     <img className="testImg" src="./images/camera.jpg" alt="test" />
