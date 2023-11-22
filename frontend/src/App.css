@@ -70,9 +70,8 @@
 	.image-montage,
 	.montage-column,
 	.montage-center {
-	  flex: 0 0 100%; /* Adjust the width to take full width on smaller screens */
-	  margin-left: 0; /* Adjust margin for smaller screens */
-	  margin-right: 0; /* Adjust margin for smaller screens */
+	  flex: 50 50 100%; /* Adjust the width to take full width on smaller screens */
+	  
 	}
   }
   
