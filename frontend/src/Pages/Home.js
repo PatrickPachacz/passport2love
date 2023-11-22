@@ -71,12 +71,14 @@ const Home = () => {
     </div>
   </div>
   <div className="centered-text">
-  <img src="./images/logolarge.png" style={{ height: '100px', marginLeft: '65px', marginBottom: '30px' }} alt="logo" />
-          <Text fontSize="xl" color="black" textAlign="center">
-            International Dating App
-            <h3>Looking for someone, somewhere?</h3>
-            <h2>Grab your passport...</h2>
-          </Text>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <img src="./images/logolarge.png" style={{ height: '100px', marginBottom: '10px' }} alt="logo" />
+            <Text fontSize="xl" color="black" textAlign="center">
+              International Dating App
+              <h3>Looking for someone, somewhere?</h3>
+              <h2>Grab your passport...</h2>
+            </Text>
+          </div>
   </div>
   <div className="image-montage">
     <div className="montage-center">
