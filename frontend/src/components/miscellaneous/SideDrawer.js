@@ -234,7 +234,7 @@ function SideDrawer() {
           <img src="./images/logolarge.png" style={{ height: '40px', width: 'auto', marginLeft: '50px' }} alt="logo" ></img>
           <Text
             fontSize="25px"
-            fontFamily="Work sans"
+            fontFamily="Dancing Script"
             px={5}
             marginTop="10px"
             marginLeft="0px"
