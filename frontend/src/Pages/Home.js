@@ -18,7 +18,7 @@ const Home = () => {
     <main className="image-container">
       <div className="black-bar" style={{ background: 'rgb(227, 226, 222)', height: '100px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src="./images/logolarge.png" style={{ height: '80px', width: 'auto' }} alt="logo" />
-        <Text fontSize="2xl" color="black" marginRight="50px" marginLeft="40px">Passport2Love</Text>
+        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="black" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
       </div>
 
       <div className="imageWrapper">
@@ -76,7 +76,7 @@ const Home = () => {
             <Text fontSize="xl" color="black" textAlign="center">
               International Dating App
               <h3>Looking for someone, somewhere?</h3>
-              <h2>Grab your passport...</h2>
+              <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Grab your passport...</h2>
             </Text>
           </div>
   </div>
