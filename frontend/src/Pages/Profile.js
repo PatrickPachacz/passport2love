@@ -100,37 +100,10 @@ function Profile() {
       const timeoutId = setTimeout(() => {
         setTypedText(typedText + textToType[currentIndex]);
         setCurrentIndex(currentIndex + 1);
-      }, 25); // Adjust the delay (in milliseconds) to control the typing speed
+      }, 25); 
       return () => clearTimeout(timeoutId);
     }
   }, [typedText, currentIndex, textToType]);
-
-  //const handleStartChat = async () => {
-  //  try {
-    //  setLoadingChat(true);
-    //  const config = {
-      //  headers: {
-        //  "Content-type": "application/json",
-      //    Authorization: `Bearer ${user.token}`,
-    //    },
-    //  };
-
-   //   const { data } = await axios.post(
-    //    '/api/chat',
-    //    { userId: id },
-    //    config
-    //  );
-
-      // You can handle chat creation success here
-  //    console.log("Chat created:", data);
-
-    //  setLoadingChat(false);
-   // } catch (error) {
-      // Handle chat creation error here
-    //  console.error("Error creating chat:", error);
-   //   setLoadingChat(false);
-  //  }
- // };
 
  return (
   <main>

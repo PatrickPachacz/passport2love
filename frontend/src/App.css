@@ -1,7 +1,5 @@
 /* Homepage */
 
-
-
 .openingDiv {
 	position: absolute;
 	font-family: cursive;
@@ -198,13 +196,7 @@
 	margin-top: 0;
 	box-sizing: border-box;
   }
-  
-  
-  .imgCoupleSitting {
-	width: 100%;
-	height: 675px;
-	position: relative;
-  }
+
   
   .couple-sitting-container {
 	position: relative;

@@ -96,9 +96,6 @@ const Home = () => {
   </div>
 </div>
 
-
-
-
             <section class="testimonials">
                 <h2>About us</h2>
                 <div class="testimonial-container">
@@ -132,7 +129,7 @@ const Home = () => {
             </section>
 
             <section className="couple-sitting-container">
-              <img src="./images/couplenoir.jpg" alt="couple" className="imgCoupleSitting" />
+              <img src="./images/couplenoir.jpg" alt="couple" className="couplenoir" />
               <div className="download-now-container">
               <div className="download-now">
               <p>Download Now</p>
