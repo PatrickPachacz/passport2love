@@ -12,21 +12,19 @@ import {
   Image,
   Flex,
 } from "@chakra-ui/react";
-import ReactCountryFlag from 'react-country-flag';
+import ReactCountryFlag from "react-country-flag";
 
 const ProfileModal = ({ user, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  
 
   function calculateAge(dateOfBirth) {
     const diff = Date.now() - dateOfBirth.getTime();
     const ageDate = new Date(diff);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
-  
+
   const userAge = calculateAge(new Date(user.dob));
- 
-  
+
   return (
     <>
       {children ? (
@@ -36,15 +34,29 @@ const ProfileModal = ({ user, children }) => {
       )}
       <Modal size="lg" onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
-        <ModalContent h="410px">
-          <ModalHeader
-            fontSize="40px"
-            fontFamily="Work sans"
-            textAlign="center"
-          >
+        <ModalContent h="710px" position="relative">
+          {/* Background Image */}
+          <Image
+            src="./images/framevin.png" // Adjust the path to your image
+            alt="Background"
+            position="absolute"
+            top="0"
+            left="0"
+            width="100%"
+            height="100%"
+            objectFit="cover"
+            zIndex="-1"
+          />
+
+<ModalHeader
+  fontSize="40px"
+  fontFamily="Dancing Script, cursive"
+  textAlign="center"
+  mt="20px" // Add margin-top to create space
+>
             {user.name}
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton color="red.500" size="lg" fontWeight="bold" />
           <ModalBody
             d="flex"
             flexDir="column"
@@ -53,46 +65,53 @@ const ProfileModal = ({ user, children }) => {
           >
             <Flex alignItems="center" justifyContent="center" mb={4}>
               <Image
-                borderRadius="full"
-                boxSize="150px"
+                borderRadius="lg"
+                boxSize="180px"
                 src={user.pic}
                 alt={user.name}
               />
             </Flex>
-            
-            <Text 
-              fontSize={{ base: "20px", md: "20px" }}
+
+            <Text
+              fontSize={{ base: "20px", md: "40px" }}
               fontFamily="Work sans"
-              textAlign="center">
+              textAlign="center"
+            >
               Country: {user.country}
             </Text>
             <Text
               fontSize={{ base: "18px", md: "20px" }}
               fontFamily="Work sans"
-              textAlign="center">
+              textAlign="center"
+            >
               Age: {userAge}
             </Text>
 
             <Text
               fontSize={{ base: "18px", md: "20px" }}
               fontFamily="Work sans"
-              textAlign="center">
+              textAlign="center"
+            >
               Gender: {user.gender}
             </Text>
 
             <Text
               fontSize={{ base: "18px", md: "20px" }}
               fontFamily="Work sans"
-              textAlign="center">
+              textAlign="center"
+            >
               Looking for (Gender): {user.genderPreference}
             </Text>
 
-           <div>
-              <ReactCountryFlag className="flag" countryCode={user.country} svg style={{ top: "0%", left: "0%", width: "100%", height: "100%" }} />
-           </div>
-
+            <div>
+              <ReactCountryFlag
+                className="flag"
+                countryCode={user.country}
+                svg
+                style={{ top: "13%", left: "10%", width: "80%", height: "100%" }}
+              />
+            </div>
           </ModalBody>
-          
         </ModalContent>
       </Modal>
     </>
