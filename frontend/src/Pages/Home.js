@@ -16,13 +16,13 @@ const Home = () => {
   return (
 
     <main className="image-container">
-      <div className="black-bar" style={{ background: 'black', height: '100px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img src="./images/logoonly.png" style={{ height: '80px', width: 'auto' }} alt="logo" />
-        <Text fontSize="2xl" color="white" marginLeft="10px">Passport2Love</Text>
+      <div className="black-bar" style={{ background: 'rgb(227, 226, 222)', height: '100px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="./images/logolarge.png" style={{ height: '80px', width: 'auto' }} alt="logo" />
+        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="black" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
       </div>
 
       <div className="imageWrapper">
-          <img src="./images/homeface.jpg" className="imageHome" alt="background" />
+          <img src="./images/beige.jpg" className="imageHome" alt="background" />
       </div>
 
     <Container maxW='xl' centerContent>
@@ -38,7 +38,7 @@ const Home = () => {
         
       </Box>
       <Box bg={'rgba(255, 255, 255, 0.8)'} w="100%" p={4} borderRadius="lg" color="black" borderWidth="1px" m="0 0 260px 0">
-        <Tabs variant='soft-rounded' colorScheme='orange'>
+        <Tabs variant='soft-rounded' colorScheme='gray'>
           <TabList mb="1em">
             <Tab width="50%">Login</Tab>
             <Tab width="50%">Sign up</Tab>
@@ -56,22 +56,51 @@ const Home = () => {
     </Container>
 
     <div className="app-info">
-        
-        <div className="video-and-text-container">
-          <video src="./images/globe.mp4" className="videoGlobe" autoPlay loop muted></video>
-          <div className="text-container">
-            <h2>Grab your passport</h2>
-            <h3>Looking for someone, somewhere? Let us help you...</h3>
+  <div className="image-montage">
+    <div className="montage-column">
+      <img src="./images/self1.jpg" alt="self1" className="montage-image" />
+      <img src="./images/self4.jpg" alt="self4" className="montage-image" />
+    </div>
+    <div className="montage-column">
+      <img src="./images/self2.jpg" alt="self2" className="montage-image" />
+      <img src="./images/self5.jpg" alt="self5" className="montage-image" />
+    </div>
+    <div className="montage-center">
+      <img src="./images/self3.jpg" alt="self3" className="montage-image" />
+      <img src="./images/self6.jpg" alt="self6" className="montage-image" />
+    </div>
+  </div>
+  <div className="centered-text">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <img src="./images/logolarge.png" style={{ height: '100px', marginBottom: '10px' }} alt="logo" />
+            <Text fontSize="xl" color="black" textAlign="center">
+              International Dating App
+              <h3>Looking for someone, somewhere?</h3>
+              <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Grab your passport...</h2>
+            </Text>
           </div>
-        </div>
-        
-      </div>
+  </div>
+  <div className="image-montage">
+    <div className="montage-center">
+      <img src="./images/self7.jpg" alt="self7" className="montage-image" />
+      <img src="./images/self10.jpg" alt="self10" className="montage-image" />
+    </div>
+    <div className="montage-column">
+      <img src="./images/self8.jpg" alt="self8" className="montage-image" />
+      <img src="./images/self11.jpg" alt="self11" className="montage-image" />
+    </div>
+    <div className="montage-column">
+      <img src="./images/self9.jpg" alt="self9" className="montage-image" />
+      <img src="./images/self12.jpg" alt="self12" className="montage-image" />
+    </div>
+  </div>
+</div>
 
             <section class="testimonials">
-                <h2>Passport2Love - International Dating App</h2>
+                <h2>About us</h2>
                 <div class="testimonial-container">
                     <div class="testimonial">
-                    <img className="testImg" src="./images/camera.jpg" alt="test" />
+                    <img className="testImg" src="./images/camera.jpg" alt="camera" />
                     <h1 className="testh1">Video Upload:</h1>
                     <p>Sometimes a photo is just not enough</p>
                     <p>Share a brief video expressing your desires in life</p>
@@ -80,7 +109,7 @@ const Home = () => {
                     
                     </div>
                     <div class="testimonial">
-                    <img className="testImg" src="./images/mobile.jpg" alt="test"/>
+                    <img className="testImg" src="./images/messagenoir.jpg" alt="message"/>
                     <h1 className="testh1">Real-Time Messaging:</h1>
                     <p>Open a dialogue</p>
                     <p>Keep in contact with potential matches</p>
@@ -88,7 +117,7 @@ const Home = () => {
                     
                     </div>
                     <div class="testimonial">
-                    <img className="testImg" src="./images/testimonial3.jpg" alt="test"/>
+                    <img className="testImg" src="./images/couplenoirhug.jpg" alt="couplehugging"/>
                     <h1 className="testh1">Find your match based on your criteria</h1>
                     <p>Everyone has their preferences</p>
                     <p>Searches made by country of origin, age, and gender</p>
@@ -100,11 +129,11 @@ const Home = () => {
             </section>
 
             <section className="couple-sitting-container">
-              <img src="./images/bottomcouple.jpg" alt="couple" className="imgCoupleSitting" />
+              <img src="./images/couplenoir.jpg" alt="couple" className="couplenoir" />
               <div className="download-now-container">
               <div className="download-now">
               <p>Download Now</p>
-              <div className="blank-box">Pending</div> {/* Replace with Google Play logo */}
+              <div className="blank-box"><p>Google play coming soon</p></div> {/* Replace with Google Play logo */}
               </div>
               </div>
             </section>

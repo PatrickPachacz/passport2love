@@ -157,13 +157,12 @@ function SideDrawer() {
     <Flex
       justifyContent="space-between"
       alignItems="center"
-      bg="rgb(0,0,0)"
+      bg="rgba(227, 226, 222)"
       p="10px 30px"
-      color="white"
+      color="black"
       borderWidth="5px"
       flexWrap="wrap"
       border="1px solid grey"
-      opacity="0.8"
     >
       <Box
         flex={{ base: "1", md: "auto" }}
@@ -172,7 +171,7 @@ function SideDrawer() {
         flexGrow="1"
       >
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" color="white" onClick={onOpen} _hover={{ color: 'rgb(51, 69, 130)' }}>
+          <Button variant="ghost" color="black" onClick={onOpen} _hover={{ color: 'gray' }}>
             <i className="fas fa-search"></i>
             <Text d={{ base: "none", md: "flex" }} px={2} marginTop="10px">
               Search User
@@ -215,9 +214,9 @@ function SideDrawer() {
   
         <Button
           variant="ghost"
-          color="white"
+          color="black"
           onClick={navigateToChats}
-          _hover={{ color: 'rgb(51, 69, 130)' }}
+          _hover={{ color: 'gray' }}
           ml={2}
         >
           <Text d={{ base: "none", md: "flex" }} px={4} marginTop="10px">
@@ -230,17 +229,17 @@ function SideDrawer() {
         <Button
           variant="ghost"
           onClick={navigateToDashboard}
-          _hover={{ color: 'rgb(51, 69, 130)' }}
+          _hover={{ color: 'gray' }}
         >
-          <img src="./images/logoonly.png" style={{ height: '40px', width: 'auto', marginLeft: '50px' }} alt="logo" ></img>
+          <img src="./images/logolarge.png" style={{ height: '40px', width: 'auto', marginLeft: '50px' }} alt="logo" ></img>
           <Text
             fontSize="25px"
-            fontFamily="Work sans"
+            fontFamily="Dancing Script"
             px={5}
             marginTop="10px"
             marginLeft="0px"
             paddingLeft="10px"
-            color= 'rgb(30, 58, 153)'
+            color= 'black'
           >
             Passport2Love
           </Text>
@@ -255,9 +254,9 @@ function SideDrawer() {
       >
         <Button
           variant="ghost"
-          color="white"
+          color="black"
           onClick={navigateToSingle}
-          _hover={{ color: 'rgb(51, 69, 130)' }}
+          _hover={{ color: 'gray' }}
           ml={2}
         >
           <Text d={{ base: "none", md: "flex" }} px={4} marginTop="10px">
@@ -267,9 +266,9 @@ function SideDrawer() {
   
         <Button
           variant="ghost"
-          color="white"
+          color="black"
           onClick={navigateToProfile}
-          _hover={{ color: 'rgb(51, 69, 130)' }}
+          _hover={{ color: 'gray' }}
           mr={2}
         >
           {user ? (

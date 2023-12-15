@@ -29,7 +29,7 @@ function Profile() {
 
   useEffect(() => {
     async function getUser() {
-      const response = await fetch(`/api/user/${id}`);
+      const response = await fetch(`https://passport2love.onrender.com/api/user/${id}`);
       const data = await response.json();
       setName(data.name);
       setGender(data.gender);
@@ -100,123 +100,98 @@ function Profile() {
       const timeoutId = setTimeout(() => {
         setTypedText(typedText + textToType[currentIndex]);
         setCurrentIndex(currentIndex + 1);
-      }, 25); // Adjust the delay (in milliseconds) to control the typing speed
+      }, 25); 
       return () => clearTimeout(timeoutId);
     }
   }, [typedText, currentIndex, textToType]);
 
-  //const handleStartChat = async () => {
-  //  try {
-    //  setLoadingChat(true);
-    //  const config = {
-      //  headers: {
-        //  "Content-type": "application/json",
-      //    Authorization: `Bearer ${user.token}`,
-    //    },
-    //  };
+ return (
+  <main>
+    <div style={{ width: "100%" }}>
+      <SideDrawer />
+    </div>
 
-   //   const { data } = await axios.post(
-    //    '/api/chat',
-    //    { userId: id },
-    //    config
-    //  );
+    <img
+      src="https://cdn.pixabay.com/photo/2017/07/04/20/07/scrapbook-2472422_1280.jpg"
+      className="imageHome"
+      alt=""
+    />
 
-      // You can handle chat creation success here
-  //    console.log("Chat created:", data);
-
-    //  setLoadingChat(false);
-   // } catch (error) {
-      // Handle chat creation error here
-    //  console.error("Error creating chat:", error);
-   //   setLoadingChat(false);
-  //  }
- // };
-
-  return (
-    <main>
-      <div style={{ width: "100%" }}>
-        <SideDrawer />
-      </div>
-
-      <img
-        src="https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        className="imageHome"
-        alt=""
-      />
-
-      <div
-        className="profileInfo"
+<div
         style={{
-          maxWidth: "800px",
-          margin: "0 auto",
-          background: "black",
-          padding: "20px",
-          borderRadius: "4px",
-          marginTop: "30px",
           position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          opacity: "0.9"
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          columnGap: "120px",
+          maxWidth: "1000px",
+          margin: "100px auto",
         }}
       >
-        <h1>Profile</h1>
-        <p style={{ margin: "10px 0" }}>Name: {name}</p>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <Image
-            borderRadius="15%"
-            boxSize="300px"
-            src={pic}
-            alt={name}
-            style={{ margin: "10px 0" }}
-          />
+        {/* Left Column: Profile Image and Name */}
+        <div>
+          <Image borderRadius="15%" boxSize="200px" src={pic} alt={name} style={{ margin: "50px 0" }} />
+          <strong style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
+        </div>
+
+        {/* Middle Column: Country Flag and User Info */}
+        <div>
           <ReactCountryFlag
             className="flag"
             countryCode={country}
             svg
             style={{
               width: "auto",
-              height: "100%",
+              height: "70%",
               opacity: 0.9,
-              position: "relative", // Add this line
-              zIndex: -1, // Add this line
+              position: "relative",
+              zIndex: -1,
+              fontFamily: "'Dancing Script', cursive", // Set the font family
             }}
           />
+          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Age: {age}</strong>
+          </p>
+          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Country: {country}</strong>
+          </p>
+          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Gender: {gender}</strong>
+          </p>
+          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Interested in: {genderPreference}</strong>
+          </p>
         </div>
-        <div
-          className="profileInfo2"
-          style={{
-            maxWidth: "250px",
-            margin: "0 auto",
-            background: "black",
-            padding: "60px", // Adjust padding as needed
-            borderRadius: "4px",
-            border: "1px solid white",
-            position: "relative",
-            marginTop: "50px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <p style={{ margin: "10px 0" }}>{typedText}</p>
+
+        {/* Right Column: Video */}
+        <div>
+          {video ? (
+            <Box mt={3}>
+              <video
+                width="100%"
+                style={{ margin: "90px 0" }}
+                controls
+                className="videoContainer"
+              >
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </Box>
+          ) : (
+            <Box mt={3} height="400px" />
+          )}
         </div>
-        {video ? (
-          <Box mt={3}>
-            <video width="40%" style={{ margin: "90px 0" }} controls className="videoContainer">
-              <source src={video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </Box>
-        ) : (
-          <Box mt={3} height="400px" />
-        )}
-       <Button  
+      </div>
+
+      {/* Message Button */}
+      <Button
         colorScheme="blue"
         variant="outline"
-        marginTop="2px" onClick={() => accessChat(user._id)}>Message</Button>
-      </div>
+        marginTop="2px"
+        onClick={() => accessChat(user._id)}
+        style={{ marginTop: "20px" }}
+      >
+        Message
+      </Button>
     </main>
   );
 }

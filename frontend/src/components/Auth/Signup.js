@@ -447,7 +447,7 @@ const Signup = () => {
         </Checkbox>
 
         <Button
-          colorScheme="orange"
+          colorScheme="gray"
           width="100%"
           style={{ marginTop: 15 }}
           onClick={submitHandler}
