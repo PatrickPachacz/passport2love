@@ -112,7 +112,7 @@ function Profile() {
     </div>
 
     <img
-      src="https://cdn.pixabay.com/photo/2017/07/04/20/07/scrapbook-2472422_1280.jpg"
+      src=""
       className="imageHome"
       alt=""
     />
@@ -145,7 +145,7 @@ function Profile() {
               opacity: 0.9,
               position: "relative",
               zIndex: -1,
-              fontFamily: "'Dancing Script', cursive", // Set the font family
+              fontFamily: "'Dancing Script', cursive", 
             }}
           />
           <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>

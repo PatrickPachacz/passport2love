@@ -152,7 +152,7 @@ export default function Dashboard() {
     <main>
       <div className="imageWrapper">
         <img
-          src="./images/rustic.jpg"
+          src=""
           alt="background"
           className="imageHome"
         />
