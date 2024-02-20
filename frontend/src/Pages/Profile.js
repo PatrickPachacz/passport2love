@@ -112,42 +112,29 @@ function Profile() {
     </div>
 
     <img
-      src=""
+      src="./images/backgroundblackwhite.jpg"
       className="imageHome"
       alt=""
     />
 
-<div
-        style={{
-          position: "relative",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          columnGap: "120px",
-          maxWidth: "1000px",
-          margin: "100px auto",
-        }}
-      >
-        {/* Left Column: Profile Image and Name */}
-        <div>
-          <Image borderRadius="15%" boxSize="200px" src={pic} alt={name} style={{ margin: "50px 0" }} />
-          <strong style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
-        </div>
+<div>
 
         {/* Middle Column: Country Flag and User Info */}
         <div>
-          <ReactCountryFlag
-            className="flag"
-            countryCode={country}
-            svg
-            style={{
-              width: "auto",
-              height: "70%",
-              opacity: 0.9,
-              position: "relative",
-              zIndex: -1,
-              fontFamily: "'Dancing Script', cursive", 
-            }}
-          />
+        <ReactCountryFlag
+        countryCode={country}
+        svg
+        style={{
+          width: "100%",
+          height: "300px",
+        }}
+      />
+
+        <div>
+          <Image borderRadius="20%" boxSize="200px" src={pic} alt={name} style={{ margin: "50px 0" }} />
+          <strong style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
+        </div>
+
           <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
             <strong>Age: {age}</strong>
           </p>
