@@ -106,79 +106,8 @@ function Profile() {
   }, [typedText, currentIndex, textToType]);
 
  return (
-  <main>
-    <div style={{ width: "100%" }}>
-      <SideDrawer />
-    </div>
-
-    <img
-      src="./images/backgroundblackwhite.jpg"
-      className="imageHome"
-      alt=""
-    />
-
-<div>
-
-        {/* Middle Column: Country Flag and User Info */}
-        <div>
-        <ReactCountryFlag
-        countryCode={country}
-        svg
-        style={{
-          width: "100%",
-          height: "300px",
-        }}
-      />
-
-        <div>
-          <Image borderRadius="20%" boxSize="200px" src={pic} alt={name} style={{ margin: "50px 0" }} />
-          <strong style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
-        </div>
-
-          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Age: {age}</strong>
-          </p>
-          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Country: {country}</strong>
-          </p>
-          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Gender: {gender}</strong>
-          </p>
-          <p style={{ fontSize: "35px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Interested in: {genderPreference}</strong>
-          </p>
-        </div>
-
-        {/* Right Column: Video */}
-        <div>
-          {video ? (
-            <Box mt={3}>
-              <video
-                width="100%"
-                style={{ margin: "90px 0" }}
-                controls
-                className="videoContainer"
-              >
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </Box>
-          ) : (
-            <Box mt={3} height="400px" />
-          )}
-        </div>
-      </div>
-
-      {/* Message Button */}
-      <Button
-        colorScheme="blue"
-        variant="outline"
-        marginTop="2px"
-        onClick={() => accessChat(user._id)}
-        style={{ marginTop: "20px" }}
-      >
-        Message
-      </Button>
+    <main>
+    <div><b>Error 404: Page under construction</b></div>
     </main>
   );
 }
