@@ -24,9 +24,6 @@ function Profile() {
   const navigate = useNavigate();
   const [setSelectedUser] = useState(null);
 
-
-  console.log(user);
-
   useEffect(() => {
     async function getUser() {
       const response = await fetch(`https://passport2love.onrender.com/api/user/${id}`);
@@ -41,8 +38,6 @@ function Profile() {
     }
     getUser();
   }, [id]);
-
-
 
   const accessChat = async (userId) => {
     try {
@@ -105,11 +100,51 @@ function Profile() {
     }
   }, [typedText, currentIndex, textToType]);
 
+
  return (
-    <main>
-    <div><b>Error 404: Page under construction</b></div>
-    </main>
-  );
+  <main>  
+      <img
+       src="https://cdn.pixabay.com/photo/2021/08/18/19/23/background-6556393_1280.jpg"
+       className="imageHome"
+       alt="background"
+       style={{ width: "100%" }}
+      />
+      <div style={{ width: "100%" }}>
+        {user && <SideDrawer />}
+      </div>
+
+      <div>
+
+          <Image 
+            borderRadius="20%" 
+            width="25%"
+            src={pic} 
+            alt={name} 
+            style={{ margin: "0" }} />
+          <strong style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
+
+          <ReactCountryFlag
+            countryCode={country}
+            svg
+            style={{
+            width: "100%",
+            height: "200px",
+            padding: "0px", 
+            borderRadius: "45%",
+            }}
+          />
+
+      </div>
+
+      <div>
+        
+      </div>
+
+
+    
+  </main>
+);
+
 }
 
 export default Profile;

@@ -151,7 +151,7 @@ const EditProfile = () => {
   return (
     <div>
       <img
-        src="https://images.pexels.com/photos/592753/pexels-photo-592753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        src="https://cdn.pixabay.com/photo/2021/08/18/19/23/background-6556393_1280.jpg"
         className="imageHome"
         alt="background"
         style={{ width: "100%" }}
