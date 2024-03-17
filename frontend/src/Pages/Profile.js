@@ -121,41 +121,41 @@ function Profile() {
           padding: "20px",
         }}
       >
-        <div style={{ flex: 1 }}>
-          <Image
-            borderRadius="20%"
-            width="100%"
-            src={pic}
-            alt={name}
-            style={{ margin: "0" }}
-          />
-        </div>
-        <div style={{ flex: 2, marginLeft: "20px" }}>
-          <strong style={{ fontSize: "40px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Age: {age}</strong>
-          </p>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Country: {country}</strong>
-          </p>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Gender: {gender}</strong>
-          </p>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Interested in: {genderPreference}</strong>
-          </p>
-        </div>
-        <div style={{ flex: 1, textAlign: "right" }}>
-          <ReactCountryFlag
-            countryCode={country}
-            svg
-            style={{
-              width: "100%",
-              height: "auto",
-              borderRadius: "50%",
-            }}
-          />
-        </div>
+        <div style={{ flex: "1", textAlign: "center" }}>
+              <Image
+                borderRadius="20%"
+                width="100%"
+                src={pic}
+                alt={name}
+                style={{ margin: "0" }}
+              />
+            </div>
+            <div style={{ flex: "2", textAlign: "center", marginLeft: "20px" }}>
+              <strong style={{ fontSize: "40px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
+              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+                <strong>Age: {age}</strong>
+              </p>
+              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+                <strong>Country: {country}</strong>
+              </p>
+              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+                <strong>Gender: {gender}</strong>
+              </p>
+              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+                <strong>Interested in: {genderPreference}</strong>
+              </p>
+            </div>
+            <div style={{ flex: "1", textAlign: "center" }}>
+              <ReactCountryFlag
+                countryCode={country}
+                svg
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
       </div>
     </main>
   );
