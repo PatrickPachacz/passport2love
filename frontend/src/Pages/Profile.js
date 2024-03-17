@@ -101,61 +101,69 @@ function Profile() {
   }, [typedText, currentIndex, textToType]);
 
 
- return (
-  <main>  
+  return (
+    <main>
       <img
-       src="https://cdn.pixabay.com/photo/2021/08/18/19/23/background-6556393_1280.jpg"
-       className="imageHome"
-       alt="background"
-       style={{ width: "100%" }}
+        src="https://cdn.pixabay.com/photo/2021/08/18/19/23/background-6556393_1280.jpg"
+        className="imageHome"
+        alt="background"
+        style={{ width: "100%" }}
       />
-      <div style={{ width: "100%" }}>
-        {user && <SideDrawer />}
-      </div>
-
+      {user && <SideDrawer />}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center", // Center vertically
           padding: "20px",
+          flexWrap: "wrap", // Wrap items if they exceed container width
         }}
       >
-        <div style={{ flex: "1", textAlign: "center" }}>
-              <Image
-                borderRadius="20%"
-                width="100%"
-                src={pic}
-                alt={name}
-                style={{ margin: "0" }}
-              />
-            </div>
-            <div style={{ flex: "2", textAlign: "center", marginLeft: "20px" }}>
-              <strong style={{ fontSize: "40px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
-              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-                <strong>Age: {age}</strong>
-              </p>
-              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-                <strong>Country: {country}</strong>
-              </p>
-              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-                <strong>Gender: {gender}</strong>
-              </p>
-              <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-                <strong>Interested in: {genderPreference}</strong>
-              </p>
-            </div>
-            <div style={{ flex: "1", textAlign: "center" }}>
-              <ReactCountryFlag
-                countryCode={country}
-                svg
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "50%",
-                }}
-              />
-            </div>
+        <div style={{ flex: "1", textAlign: "center", minWidth: "200px", }}>
+          <Image
+            borderRadius="100px"
+            width="100%"
+            src={pic}
+            alt={name}
+            style={{ margin: "0" }}
+          />
+        </div>
+        <div
+          style={{
+            flex: "1",
+            textAlign: "center",
+            minWidth: "200px",
+            margin: "20px",
+            background: "rgba(255, 255, 255, 0.384)",
+            opacity: "0.9",
+            borderRadius: "100px",
+          }}
+        >
+          <strong style={{ fontSize: "40px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
+          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Age: {age}</strong>
+          </p>
+          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Country: {country}</strong>
+          </p>
+          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Gender: {gender}</strong>
+          </p>
+          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+            <strong>Interested in: {genderPreference}</strong>
+          </p>
+        </div>
+        <div style={{ flex: "1", textAlign: "center", minWidth: "200px" }}>
+          <ReactCountryFlag
+            countryCode={country}
+            svg
+            style={{
+              width: "90%",
+              height: "auto",
+              borderRadius: "100px",
+            }}
+          />
+        </div>
       </div>
     </main>
   );
