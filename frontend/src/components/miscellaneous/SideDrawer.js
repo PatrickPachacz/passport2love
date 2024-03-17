@@ -231,13 +231,12 @@ function SideDrawer() {
           onClick={navigateToDashboard}
           _hover={{ color: 'gray' }}
         >
-          <img src="./images/logolarge.png" style={{ height: '40px', width: 'auto', marginLeft: '50px' }} alt="logo" ></img>
           <Text
             fontSize="25px"
             fontFamily="Dancing Script"
             px={5}
             marginTop="10px"
-            marginLeft="0px"
+            marginLeft="30px"
             paddingLeft="10px"
             color= 'black'
           >

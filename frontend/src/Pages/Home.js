@@ -16,8 +16,7 @@ const Home = () => {
   return (
 
     <main className="image-container">
-      <div className="black-bar" style={{ background: 'rgb(227, 226, 222)', height: '100px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img src="./images/logolarge.png" style={{ height: '80px', width: 'auto' }} alt="logo" />
+      <div className="black-bar" style={{ background: 'rgb(227, 226, 222)', height: '70px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="black" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
       </div>
 
@@ -76,7 +75,7 @@ const Home = () => {
             <Text fontSize="xl" color="black" textAlign="center">
               International Dating App
               <h3>Looking for someone, somewhere?</h3>
-              <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Grab your passport...</h2>
+              <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Find what you're looking for ...</h2>
             </Text>
           </div>
   </div>
