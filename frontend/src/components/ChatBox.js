@@ -12,8 +12,8 @@ const Chatbox = ({ fetchAgain, setFetchAgain }) => {
       alignItems="center"
       flexDir="column"
       fontFamily="dancing script"
-      fontSize="20px"
-      p={4}
+      fontSize="25px"
+      p={1}
       bg="white"
       w={{ base: "100%", md: "99%" }}
       borderRadius="lg"
