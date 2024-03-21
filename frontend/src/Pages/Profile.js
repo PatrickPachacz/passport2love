@@ -164,6 +164,37 @@ function Profile() {
             }}
           />
         </div>
+
+         {/* Right Column: Video */}
+         <div>
+          {video ? (
+            <Box mt={3}>
+              <video
+                width="100%"
+                style={{ margin: "90px 0" }}
+                controls
+                className="videoContainer"
+              >
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </Box>
+          ) : (
+            <Box mt={3} height="400px" />
+          )}
+        </div>
+
+         {/* Message Button */}
+      <Button
+        colorScheme="blue"
+        variant="outline"
+        marginTop="2px"
+        onClick={() => accessChat(user._id)}
+        style={{ marginTop: "20px" }}
+      >
+        Message
+      </Button>
+      
       </div>
     </main>
   );
