@@ -240,6 +240,7 @@ export default function Dashboard() {
                 className="flagMatches"
                 style={{ width: "300px", height: "200px" }}
               />
+              {user.pic ? (
               <Image
                 marginTop="-10px"
                 marginLeft="40px"
@@ -249,6 +250,18 @@ export default function Dashboard() {
                 opacity="0.9"
                 src={user.pic}
               />
+              ) : (
+              <Image
+                marginTop="-10px"
+                marginLeft="40px"
+                width="70%"
+                height="50%"
+                borderRadius="45%"
+                opacity="0.9"
+                src="./images/avatar.jpg" 
+                alt="Default Avatar"
+                />
+              )}
               <div style={{ marginTop: "10px" }}>
                 <h2>Name: {user.name}</h2>
                 <h2>Country: {user.country}</h2>
