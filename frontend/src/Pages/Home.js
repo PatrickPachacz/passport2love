@@ -75,7 +75,7 @@ const Home = () => {
             <Text fontSize="xl" color="black" textAlign="center">
               International Dating App
               <h3>Looking for someone, somewhere?</h3>
-              <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Find what you're looking for ...</h2>
+              <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Search here...</h2>
             </Text>
           </div>
   </div>
