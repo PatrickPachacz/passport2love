@@ -3,6 +3,7 @@ import { Container, Box, Tabs, Text, TabList, TabPanels, Tab, TabPanel } from "@
 import Login from '../components/Auth/Login';
 import Signup from '../components/Auth/Signup';
 import { useNavigate } from "react-router-dom";
+import LazyLoad from 'react-lazyload';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -21,7 +22,9 @@ const Home = () => {
       </div>
 
       <div className="imageWrapper">
+        <LazyLoad height={200}>
           <img src="./images/beige.jpg" className="imageHome" alt="background" />
+        </LazyLoad>
       </div>
 
     <Container maxW='xl' centerContent>
@@ -55,21 +58,24 @@ const Home = () => {
     </Container>
 
     <div className="app-info">
-  <div className="image-montage">
-    <div className="montage-column">
-      <img src="./images/self1.jpg" alt="self1" className="montage-image" />
-      <img src="./images/self4.jpg" alt="self4" className="montage-image" />
-    </div>
-    <div className="montage-column">
-      <img src="./images/self2.jpg" alt="self2" className="montage-image" />
-      <img src="./images/self5.jpg" alt="self5" className="montage-image" />
-    </div>
-    <div className="montage-center">
-      <img src="./images/self3.jpg" alt="self3" className="montage-image" />
-      <img src="./images/self6.jpg" alt="self6" className="montage-image" />
-    </div>
-  </div>
-  <div className="centered-text">
+        <LazyLoad height={200}>
+          <div className="image-montage">
+            <div className="montage-column">
+              <img src="./images/self1.jpg" alt="self1" className="montage-image" />
+              <img src="./images/self4.jpg" alt="self4" className="montage-image" />
+            </div>
+            <div className="montage-column">
+              <img src="./images/self2.jpg" alt="self2" className="montage-image" />
+              <img src="./images/self5.jpg" alt="self5" className="montage-image" />
+            </div>
+            <div className="montage-center">
+              <img src="./images/self3.jpg" alt="self3" className="montage-image" />
+              <img src="./images/self6.jpg" alt="self6" className="montage-image" />
+            </div>
+          </div>
+        </LazyLoad>
+
+     <div className="centered-text">
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <img src="./images/logolarge.png" style={{ height: '100px', marginBottom: '10px' }} alt="logo" />
             <Text fontSize="xl" color="black" textAlign="center">
@@ -78,22 +84,25 @@ const Home = () => {
               <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Search here...</h2>
             </Text>
           </div>
-  </div>
-  <div className="image-montage">
-    <div className="montage-center">
-      <img src="./images/self7.jpg" alt="self7" className="montage-image" />
-      <img src="./images/self10.jpg" alt="self10" className="montage-image" />
+     </div>
+
+        <LazyLoad height={200}>
+        <div className="image-montage">
+          <div className="montage-center">
+            <img src="./images/self7.jpg" alt="self7" className="montage-image" />
+            <img src="./images/self10.jpg" alt="self10" className="montage-image" />
+          </div>
+          <div className="montage-column">
+            <img src="./images/self8.jpg" alt="self8" className="montage-image" />
+            <img src="./images/self11.jpg" alt="self11" className="montage-image" />
+          </div>
+          <div className="montage-column">
+            <img src="./images/self9.jpg" alt="self9" className="montage-image" />
+            <img src="./images/self12.jpg" alt="self12" className="montage-image" />
+          </div>
+        </div>
+        </LazyLoad>
     </div>
-    <div className="montage-column">
-      <img src="./images/self8.jpg" alt="self8" className="montage-image" />
-      <img src="./images/self11.jpg" alt="self11" className="montage-image" />
-    </div>
-    <div className="montage-column">
-      <img src="./images/self9.jpg" alt="self9" className="montage-image" />
-      <img src="./images/self12.jpg" alt="self12" className="montage-image" />
-    </div>
-  </div>
-</div>
 
             <section class="testimonials">
                 <h2>About us</h2>
@@ -128,7 +137,9 @@ const Home = () => {
             </section>
 
             <section className="couple-sitting-container">
-              <img src="./images/couplenoir.jpg" alt="couple" className="couplenoir" />
+              <LazyLoad height={200}>
+                <img src="./images/couplenoir.jpg" alt="couple" className="couplenoir" />
+              </LazyLoad>
               <div className="download-now-container">
               <div className="download-now">
               <p>Download Now</p>
