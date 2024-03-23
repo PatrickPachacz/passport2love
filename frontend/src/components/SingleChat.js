@@ -210,11 +210,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
             <FormControl onKeyDown={sendMessage} id="first-name" isRequired mt={3}>
               {istyping ? (
-                <div style={{ width: '30px', height: '30px' }}>
+                <div style={{ width: '10px', height: '10px' }}>
                   <Lottie
                     options={defaultOptions}
-                    height={50}
-                    width={70}
+                    height={30}
+                    width={30}
                     style={{ marginBottom: 15, marginLeft: 0 }}
                   />
                 </div>
@@ -234,7 +234,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         </>
       ) : (
         <Box d="flex" alignItems="center" justifyContent="center" h="100%">
-          <Text fontSize="3xl" pb={3} fontFamily="Work sans">
+          <Text fontSize="4xl" pb={3} fontFamily="Work sans">
             Click on a user to start chatting
           </Text>
         </Box>
