@@ -9,6 +9,7 @@ import ReactCountryFlag from 'react-country-flag';
 import ReactFlagsSelect from 'react-flags-select';
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/react";
+import LazyLoad from 'react-lazyload';
 
 export default function Dashboard() {
   const [search, setSearch] = useState("");
@@ -151,11 +152,13 @@ export default function Dashboard() {
   return (
     <main>
       <div className="imageWrapper">
+      <LazyLoad height={200}> 
         <img
           src="./images/backgroundblackwhite.jpg"
           alt="background"
           className="imageHome"
         />
+      </LazyLoad>
 
         <div style={{ width: "100%" }}>
           {user && <SideDrawer />}

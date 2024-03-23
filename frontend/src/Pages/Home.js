@@ -108,7 +108,9 @@ const Home = () => {
                 <h2>About us</h2>
                 <div class="testimonial-container">
                     <div class="testimonial">
-                    <img className="testImg" src="./images/camera.jpg" alt="camera" />
+                      <LazyLoad height={200}>
+                        <img className="testImg" src="./images/camera.jpg" alt="camera" />
+                      </LazyLoad>
                     <h1 className="testh1">Video Upload:</h1>
                     <p>Sometimes a photo is just not enough</p>
                     <p>Share a brief video expressing your desires in life</p>
@@ -117,7 +119,9 @@ const Home = () => {
                     
                     </div>
                     <div class="testimonial">
-                    <img className="testImg" src="./images/messagenoir.jpg" alt="message"/>
+                      <LazyLoad height={200}>
+                        <img className="testImg" src="./images/messagenoir.jpg" alt="message"/>
+                      </LazyLoad>
                     <h1 className="testh1">Real-Time Messaging:</h1>
                     <p>Open a dialogue</p>
                     <p>Keep in contact with potential matches</p>
@@ -125,7 +129,9 @@ const Home = () => {
                     
                     </div>
                     <div class="testimonial">
-                    <img className="testImg" src="./images/couplenoirhug.jpg" alt="couplehugging"/>
+                      <LazyLoad height={200}>
+                        <img className="testImg" src="./images/couplenoirhug.jpg" alt="couplehugging"/>
+                      </LazyLoad>
                     <h1 className="testh1">Find your match based on your criteria</h1>
                     <p>Everyone has their preferences</p>
                     <p>Searches made by country of origin, age, and gender</p>
@@ -161,7 +167,7 @@ const Home = () => {
                 <a href="https://www.instagram.com/yourpage" rel="noopener noreferrer" target="_blank">
                     <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/instagram-86-433323.png" alt="couple"/> 
                 </a>
-                <p>Copyright passport2love.com 2023. All rights reserved.</p>
+                <p>Copyright passport2love.com 2023-2024. All rights reserved.</p>
             </section>
             
 
