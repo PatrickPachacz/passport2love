@@ -3,7 +3,7 @@ import { Container, Box, Tabs, Text, TabList, TabPanels, Tab, TabPanel } from "@
 import Login from '../components/Auth/Login';
 import Signup from '../components/Auth/Signup';
 import { useNavigate } from "react-router-dom";
-import LazyLoad from 'react-lazyload';
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ const Home = () => {
       </div>
 
       <div className="imageWrapper">
-        <LazyLoad height={200}>
+        
           <img src="./images/beige.jpg" className="imageHome" alt="background" />
-        </LazyLoad>
+        
       </div>
 
     <Container maxW='xl' centerContent>
@@ -58,7 +58,7 @@ const Home = () => {
     </Container>
 
     <div className="app-info">
-        <LazyLoad height={200}>
+        
           <div className="image-montage">
             <div className="montage-column">
               <img src="./images/self1.jpg" alt="self1" className="montage-image" />
@@ -73,7 +73,7 @@ const Home = () => {
               <img src="./images/self6.jpg" alt="self6" className="montage-image" />
             </div>
           </div>
-        </LazyLoad>
+        
 
      <div className="centered-text">
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -86,7 +86,7 @@ const Home = () => {
           </div>
      </div>
 
-        <LazyLoad height={200}>
+        
         <div className="image-montage">
           <div className="montage-center">
             <img src="./images/self7.jpg" alt="self7" className="montage-image" />
@@ -101,16 +101,16 @@ const Home = () => {
             <img src="./images/self12.jpg" alt="self12" className="montage-image" />
           </div>
         </div>
-        </LazyLoad>
+        
     </div>
 
             <section class="testimonials">
                 <h2>About us</h2>
                 <div class="testimonial-container">
                     <div class="testimonial">
-                      <LazyLoad height={200}>
+                      
                         <img className="testImg" src="./images/camera.jpg" alt="camera" />
-                      </LazyLoad>
+                      
                     <h1 className="testh1">Video Upload:</h1>
                     <p>Sometimes a photo is just not enough</p>
                     <p>Share a brief video expressing your desires in life</p>
@@ -119,9 +119,9 @@ const Home = () => {
                     
                     </div>
                     <div class="testimonial">
-                      <LazyLoad height={200}>
+                      
                         <img className="testImg" src="./images/messagenoir.jpg" alt="message"/>
-                      </LazyLoad>
+                      
                     <h1 className="testh1">Real-Time Messaging:</h1>
                     <p>Open a dialogue</p>
                     <p>Keep in contact with potential matches</p>
@@ -129,9 +129,9 @@ const Home = () => {
                     
                     </div>
                     <div class="testimonial">
-                      <LazyLoad height={200}>
+                      
                         <img className="testImg" src="./images/couplenoirhug.jpg" alt="couplehugging"/>
-                      </LazyLoad>
+                      
                     <h1 className="testh1">Find your match based on your criteria</h1>
                     <p>Everyone has their preferences</p>
                     <p>Searches made by country of origin, age, and gender</p>
@@ -143,9 +143,9 @@ const Home = () => {
             </section>
 
             <section className="couple-sitting-container">
-              <LazyLoad height={200}>
+              
                 <img src="./images/couplenoir.jpg" alt="couple" className="couplenoir" />
-              </LazyLoad>
+              
               <div className="download-now-container">
               <div className="download-now">
               <p>Download Now</p>
