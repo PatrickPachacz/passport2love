@@ -3,7 +3,7 @@ import { Container, Box, Tabs, Text, TabList, TabPanels, Tab, TabPanel } from "@
 import Login from '../components/Auth/Login';
 import Signup from '../components/Auth/Signup';
 import { useNavigate } from "react-router-dom";
-
+import LazyLoad from 'react-lazyload';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ const Home = () => {
       </div>
 
       <div className="imageWrapper">
-        
+        <LazyLoad height={200}>
           <img src="./images/beige.jpg" className="imageHome" alt="background" />
-        
+        </LazyLoad>
       </div>
 
     <Container maxW='xl' centerContent>
