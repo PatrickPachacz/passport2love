@@ -23,7 +23,7 @@ const Home = () => {
 
       <div className="imageWrapper">
         <LazyLoad height={200}>
-          <img src="./images/beige.jpg" className="imageHome" alt="background" />
+          <img src="./images/beige.jpg" className="imageHome" alt="background" rel="noreferrer"/>
         </LazyLoad>
       </div>
 
