@@ -243,13 +243,19 @@ export default function Dashboard() {
                 className="flagMatches"
                 style={{ width: "300px", height: "200px" }}
               />
+              <ReactCountryFlag
+                countryCode={user.country}
+                svg
+                className="flagMatches2"
+                style={{ width: "50px", height: "25px" }}
+              />
               {user.pic ? (
               <Image
-                marginTop="-10px"
-                marginLeft="40px"
-                width="70%"
+                marginTop="0px"
+                marginLeft="0px"
+                width="100%"
                 height="50%"
-                borderRadius="45%"
+                borderRadius="10%"
                 opacity="0.9"
                 src={user.pic}
               />
@@ -265,7 +271,7 @@ export default function Dashboard() {
                 alt="Default Avatar"
                 />
               )}
-              <div style={{ marginTop: "10px" }}>
+              <div style={{ marginTop: "10px", fontFamily: "'Dancing Script', cursive" }}>
                 <h2>Name: {user.name}</h2>
                 <h2>Country: {user.country}</h2>
                 <h2>Age: {calculateAge(user.dob)}</h2>
@@ -276,6 +282,7 @@ export default function Dashboard() {
                     colorScheme="blue"
                     variant="outline"
                     marginTop="10px"
+                    marginLeft="20px"
                   >
                     View Profile
                   </Button>
