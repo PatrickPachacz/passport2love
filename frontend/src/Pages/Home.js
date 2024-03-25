@@ -5,6 +5,7 @@ import Signup from '../components/Auth/Signup';
 import { useNavigate } from "react-router-dom";
 
 
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -23,8 +24,8 @@ const Home = () => {
 
       <div className="imageWrapper">
         
-          <img src="./images/beige.jpg" className="imageHome" alt="background" rel="noreferrer"/>
-        
+          <img src="./images/beige.jpg" loading="lazy" className="imageHome" alt="background" rel="noreferrer"/>
+       
       </div>
 
     <Container maxW='xl' centerContent>
@@ -61,16 +62,16 @@ const Home = () => {
         
           <div className="image-montage">
             <div className="montage-column">
-              <img src="./images/self1.jpg" alt="self1" className="montage-image" />
-              <img src="./images/self4.jpg" alt="self4" className="montage-image" />
+              <img src="./images/self1.jpg" loading="lazy" alt="self1" className="montage-image" />
+              <img src="./images/self4.jpg" loading="lazy" alt="self4" className="montage-image" />
             </div>
             <div className="montage-column">
-              <img src="./images/self2.jpg" alt="self2" className="montage-image" />
-              <img src="./images/self5.jpg" alt="self5" className="montage-image" />
+              <img src="./images/self2.jpg" loading="lazy" alt="self2" className="montage-image" />
+              <img src="./images/self5.jpg" loading="lazy" alt="self5" className="montage-image" />
             </div>
             <div className="montage-center">
-              <img src="./images/self3.jpg" alt="self3" className="montage-image" />
-              <img src="./images/self6.jpg" alt="self6" className="montage-image" />
+              <img src="./images/self3.jpg" loading="lazy" alt="self3" className="montage-image" />
+              <img src="./images/self6.jpg" loading="lazy" alt="self6" className="montage-image" />
             </div>
           </div>
         
@@ -89,16 +90,16 @@ const Home = () => {
         
         <div className="image-montage">
           <div className="montage-center">
-            <img src="./images/self7.jpg" alt="self7" className="montage-image" />
-            <img src="./images/self10.jpg" alt="self10" className="montage-image" />
+            <img src="./images/self7.jpg" loading="lazy" alt="self7" className="montage-image" />
+            <img src="./images/self10.jpg" loading="lazy" alt="self10" className="montage-image" />
           </div>
           <div className="montage-column">
-            <img src="./images/self8.jpg" alt="self8" className="montage-image" />
-            <img src="./images/self11.jpg" alt="self11" className="montage-image" />
+            <img src="./images/self8.jpg" loading="lazy" alt="self8" className="montage-image" />
+            <img src="./images/self11.jpg" loading="lazy" alt="self11" className="montage-image" />
           </div>
           <div className="montage-column">
-            <img src="./images/self9.jpg" alt="self9" className="montage-image" />
-            <img src="./images/self12.jpg" alt="self12" className="montage-image" />
+            <img src="./images/self9.jpg" loading="lazy" alt="self9" className="montage-image" />
+            <img src="./images/self12.jpg" loading="lazy" alt="self12" className="montage-image" />
           </div>
         </div>
         
@@ -109,7 +110,7 @@ const Home = () => {
                 <div class="testimonial-container">
                     <div class="testimonial">
                       
-                        <img className="testImg" src="./images/camera.jpg" alt="camera" />
+                        <img className="testImg" loading="lazy" src="./images/camera.jpg" alt="camera" />
                       
                     <h1 className="testh1">Video Upload:</h1>
                     <p>Sometimes a photo is just not enough</p>
@@ -120,7 +121,7 @@ const Home = () => {
                     </div>
                     <div class="testimonial">
                       
-                        <img className="testImg" src="./images/messagenoir.jpg" alt="message"/>
+                        <img className="testImg" loading="lazy" src="./images/messagenoir.jpg" alt="message"/>
                       
                     <h1 className="testh1">Real-Time Messaging:</h1>
                     <p>Open a dialogue</p>
@@ -130,7 +131,7 @@ const Home = () => {
                     </div>
                     <div class="testimonial">
                       
-                        <img className="testImg" src="./images/couplenoirhug.jpg" alt="couplehugging"/>
+                        <img className="testImg" loading="lazy" src="./images/couplenoirhug.jpg" alt="couplehugging"/>
                       
                     <h1 className="testh1">Find your match based on your criteria</h1>
                     <p>Everyone has their preferences</p>
@@ -144,7 +145,7 @@ const Home = () => {
 
             <section className="couple-sitting-container">
               
-                <img src="./images/couplenoir.jpg" alt="couple" className="couplenoir" />
+                <img src="./images/couplenoir.jpg" loading="lazy" alt="couple" className="couplenoir" />
               
               <div className="download-now-container">
               <div className="download-now">
