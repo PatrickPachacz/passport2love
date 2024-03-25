@@ -5,7 +5,6 @@ import Signup from '../components/Auth/Signup';
 import { useNavigate } from "react-router-dom";
 
 
-
 const Home = () => {
   const navigate = useNavigate();
 
@@ -25,7 +24,6 @@ const Home = () => {
       <div className="imageWrapper">
         
           <img src="./images/beige.jpg" loading="lazy" className="imageHome" alt="background" rel="noreferrer"/>
-       
       </div>
 
     <Container maxW='xl' centerContent>

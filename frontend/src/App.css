@@ -59,7 +59,7 @@
   
   .montage-image {
 	width: 100px;
-	height: auto;
+	height: 200;
   }
   
   /* Add media query for smaller screens if needed */
@@ -170,7 +170,7 @@
   
   .testImg {
 	width: 50%; /* Adjusted the width for a smaller image */
-	max-height: 25%; /* Adjusted the max-height for a smaller image */
+	max-height: 200; /* Adjusted the max-height for a smaller image */
 	border-radius: 10%;
 	margin-left: 25%;
   }
@@ -201,6 +201,7 @@
   .couple-sitting-container {
 	position: relative;
 	text-align: center;
+	height: 200;
   }
   
   .download-now-container {
