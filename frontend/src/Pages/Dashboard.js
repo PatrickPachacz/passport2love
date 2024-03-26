@@ -203,7 +203,7 @@ export default function Dashboard() {
           placeholder="Min Age"
         />
 
-        <label className="" htmlFor="maxAge">
+        <label className="labelMatches" htmlFor="maxAge">
           Maximum Age:
         </label>
         <input
@@ -214,7 +214,7 @@ export default function Dashboard() {
           placeholder="Max Age"
         />
 
-        <label className="" htmlFor="search">
+        <label className="labelMatches" htmlFor="search">
           Search by name
         </label>
         <input
