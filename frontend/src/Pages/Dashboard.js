@@ -241,7 +241,7 @@ export default function Dashboard() {
                 countryCode={user.country}
                 svg
                 className="flagMatches"
-                style={{ width: "300px", height: "200px" }}
+                style={{ width: "300px", height: "250px" }}
               />
               <ReactCountryFlag
                 countryCode={user.country}
@@ -255,7 +255,7 @@ export default function Dashboard() {
                 marginLeft="0px"
                 width="100%"
                 height="50%"
-                borderRadius="10%"
+                borderRadius="0%"
                 opacity="0.9"
                 src={user.pic}
               />
