@@ -10,7 +10,6 @@ import ReactFlagsSelect from 'react-flags-select';
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/react";
 
-
 export default function Dashboard() {
   const [search, setSearch] = useState("");
   const [gender, setGender] = useState("");
@@ -21,6 +20,26 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
   const { user, chats, setChats } = ChatState();
+  const [currentPage, setCurrentPage] = useState(0);
+  
+  const CardsPerPage = 3;
+  const totalPages = Math.ceil(searchResult.length / CardsPerPage);
+
+
+  // Function to handle navigation to next page
+  const nextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  // Function to handle navigation to previous page
+  const prevPage = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  // Get the subset of users to display based on current page
+  const startIndex = currentPage * CardsPerPage;
+  const endIndex = Math.min(startIndex + CardsPerPage, searchResult.length);
+  const usersToShow = searchResult.slice(startIndex, endIndex);
 
   const toast = useToast();
   const { onClose } = useDisclosure();
@@ -152,159 +171,166 @@ export default function Dashboard() {
   return (
     <main>
       <div className="imageWrapper">
-      
         <img
           src="./images/backgroundblackwhite.jpg"
           alt="background"
           className="imageHome"
         />
-     
-
         <div style={{ width: "100%" }}>
           {user && <SideDrawer />}
         </div>
       </div>
 
-      <form className="formMatches" onSubmit={handleSubmit}>
-        <h1>View Matches</h1>
-        <label className="labelMatches" htmlFor="gender">
-          Select a gender:
-        </label>
-        <select id="gender" value={gender} onChange={handleGenderChange}>
-          <option value="">Select</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
+      <div className="container">
+        <form className="formMatches" onSubmit={handleSubmit}>
+          <h1>View Matches</h1>
+          <label className="labelMatches" htmlFor="gender">
+            Select a gender:
+          </label>
+          <select id="gender" value={gender} onChange={handleGenderChange}>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
 
-        <label className="labelMatches" htmlFor="country">
-          Select a country:
-        </label>
-        <div className="react-flags-select-container">
-          <ReactFlagsSelect
-            name="country"
-            id="country"
-            searchable={true}
-            required
-            className="react-flags-select"
-            selected={country}
-            onSelect={handleCountryChange}
+          <label className="labelMatches" htmlFor="country">
+            Select a country:
+          </label>
+          <div className="react-flags-select-container">
+            <ReactFlagsSelect
+              name="country"
+              id="country"
+              searchable={true}
+              required
+              className="react-flags-select"
+              selected={country}
+              onSelect={handleCountryChange}
+            />
+          </div>
+
+          <label className="labelMatches" htmlFor="minAge">
+            Minimum Age:
+          </label>
+          <input
+            type="number"
+            id="minAge"
+            value={minAge}
+            onChange={handleMinAgeChange}
+            placeholder="Min Age"
           />
-        </div>
 
-        <label className="labelMatches" htmlFor="minAge">
-          Minimum Age:
-        </label>
-        <input
-          type="number"
-          id="minAge"
-          value={minAge}
-          onChange={handleMinAgeChange}
-          placeholder="Min Age"
-        />
+          <label className="labelMatches" htmlFor="maxAge">
+            Maximum Age:
+          </label>
+          <input
+            type="number"
+            id="maxAge"
+            value={maxAge}
+            onChange={handleMaxAgeChange}
+            placeholder="Max Age"
+          />
 
-        <label className="labelMatches" htmlFor="maxAge">
-          Maximum Age:
-        </label>
-        <input
-          type="number"
-          id="maxAge"
-          value={maxAge}
-          onChange={handleMaxAgeChange}
-          placeholder="Max Age"
-        />
+          <label className="labelMatches" htmlFor="search">
+            Search by name
+          </label>
+          <input
+            type="text"
+            id="search"
+            value={search}
+            onChange={handleSearchChange}
+            placeholder="Search"
+            className="inputMatches"
+          />
 
-        <label className="labelMatches" htmlFor="search">
-          Search by name
-        </label>
-        <input
-          type="text"
-          id="search"
-          value={search}
-          onChange={handleSearchChange}
-          placeholder="Search"
-          className="inputMatches"
-        />
+          <button type="submit">Submit</button>
+        </form>
 
-        <button type="submit">Submit</button>
-      </form>
-
-      <h2>Matched Users:</h2>
-
-      {loading ? (
-        <p>Loading...</p>
-      ) : searchResult.length > 0 ? (
-        <ul className="user-list">
-          {searchResult.map((user) => (
-            <li key={user._id} className="user-card">
-              <ReactCountryFlag
-                countryCode={user.country}
-                svg
-                className="flagMatches"
-                style={{ width: "300px", height: "250px" }}
-              />
-              <ReactCountryFlag
-                countryCode={user.country}
-                svg
-                className="flagMatches2"
-                style={{ width: "50px", height: "25px" }}
-              />
-              {user.pic ? (
-              <Image
-                marginTop="0px"
-                marginLeft="0px"
-                width="100%"
-                height="50%"
-                borderRadius="0%"
-                opacity="0.9"
-                src={user.pic}
-              />
-              ) : (
-              <Image
-                marginTop="-10px"
-                marginLeft="40px"
-                width="70%"
-                height="50%"
-                borderRadius="45%"
-                opacity="0.9"
-                src="./images/avatar.jpg" 
-                alt="Default Avatar"
+        {loading ? (
+          <p>Loading...</p>
+        ) : searchResult.length > 0 ? (
+          <div className="user-cards-container">
+            <ul className="user-list">
+            {usersToShow.map((user) => (
+              <li key={user._id} className="user-card">
+               <ReactCountryFlag
+                  countryCode={user.country}
+                  svg
+                  className="flagMatches"
+                  style={{ width: "300px", height: "250px" }}
                 />
-              )}
-              <div style={{ marginTop: "10px", fontFamily: "'Dancing Script', cursive" }}>
-                <h2>Name: {user.name}</h2>
-                <h2>Country: {user.country}</h2>
-                <h2>Age: {calculateAge(user.dob)}</h2>
-                <h2>Gender: {user.gender}</h2>
-                <h2>Looking for: {user.genderPreference}</h2>
-                <Link to={`/Profile/${user._id}`}>
-                  <Button
-                    colorScheme="blue"
-                    variant="outline"
-                    marginTop="10px"
-                    marginLeft="20px"
-                  >
-                    View Profile
-                  </Button>
-                </Link>
-                <Button
-                  colorScheme="blue"
-                  variant="outline"
-                  marginTop="10px"
-                  marginLeft="10px"
-                  onClick={() => accessChat(user._id)}
-                  isLoading={loadingChat}
-                  disabled={loadingChat}
-                >
-                  {loadingChat ? "Accessing Chat" : "Access Chat"}
-                </Button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No matching users found.</p>
-      )}
+    <ReactCountryFlag
+      countryCode={user.country}
+      svg
+      className="flagMatches2"
+      style={{ width: "50px", height: "25px" }}
+    />
+    {user.pic ? (
+      <Image
+        marginTop="0px"
+        marginLeft="0px"
+        width="100%"
+        height="50%"
+        borderRadius="0%"
+        opacity="0.9"
+        src={user.pic}
+      />
+    ) : (
+      <Image
+        marginTop="-10px"
+        marginLeft="40px"
+        width="70%"
+        height="50%"
+        borderRadius="45%"
+        opacity="0.9"
+        src="./images/avatar.jpg"
+        alt="Default Avatar"
+      />
+    )}
+    <div style={{ marginTop: "10px", fontFamily: "'Dancing Script', cursive" }}>
+      <h2>Name: {user.name}</h2>
+      <h2>Country: {user.country}</h2>
+      <h2>Age: {calculateAge(user.dob)}</h2>
+      <h2>Gender: {user.gender}</h2>
+      <h2>Looking for: {user.genderPreference}</h2>
+      <Link to={`/Profile/${user._id}`}>
+        <Button
+          colorScheme="blue"
+          variant="outline"
+          marginTop="10px"
+          marginLeft="20px"
+        >
+          View Profile
+        </Button>
+      </Link>
+      <Button
+        colorScheme="blue"
+        variant="outline"
+        marginTop="10px"
+        marginLeft="10px"
+        onClick={() => accessChat(user._id)}
+        isLoading={loadingChat}
+        disabled={loadingChat}
+      >
+        {loadingChat ? "Accessing Chat" : "Access Chat"}
+      </Button>
+    </div>
+  </li>
+))}
+</ul>
+
+{totalPages > 1 && (
+  <div className="navigation-buttons" >
+    <Button colorScheme="blue" onClick={prevPage} disabled={currentPage === 0}>Previous</Button>
+    <Button colorScheme="blue" onClick={nextPage} disabled={currentPage === totalPages - 1}>Next</Button>
+  </div>
+)}
+</div>
+) : (
+<p>No matching users found.</p>
+)}
+
+    </div>
     </main>
   );
 }
