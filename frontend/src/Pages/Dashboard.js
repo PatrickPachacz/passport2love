@@ -25,7 +25,6 @@ export default function Dashboard() {
   const CardsPerPage = 3;
   const totalPages = Math.ceil(searchResult.length / CardsPerPage);
 
-
   // Function to handle navigation to next page
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -168,6 +167,51 @@ export default function Dashboard() {
     }
   };
 
+  const getRandomUser = async () => {
+    try {
+      setLoading(true);
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+  
+      const { data } = await axios.get('https://passport2love.onrender.com/api/user', {
+        params: {
+          gender,
+          minAge,
+          maxAge,
+          country,
+        },
+        ...config,
+      });
+  
+      console.log('All users data:', data);
+  
+      // Select a random user from the received data array
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const randomUser = data[randomIndex];
+  
+      console.log('Random user:', randomUser);
+  
+      setSearchResult([randomUser]); // Set the random user as the search result
+    } catch (error) {
+      console.error('Error fetching random user:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
+  // Handle random user button click
+  const handleRandomUserClick = () => {
+    const confirmed = window.confirm("Are you sure? You only get one random user a day.");
+    if (confirmed) {
+      getRandomUser();
+    }
+  };
+
   return (
     <main>
       <div className="imageWrapper">
@@ -184,6 +228,7 @@ export default function Dashboard() {
       <div className="container">
         <form className="formMatches" onSubmit={handleSubmit}>
           <h1>View Matches</h1>
+          <Button colorScheme="blue" onClick={handleRandomUserClick}>Random</Button>
           <label className="labelMatches" htmlFor="gender">
             Select a gender:
           </label>
@@ -287,7 +332,7 @@ export default function Dashboard() {
         alt="Default Avatar"
       />
     )}
-    <div style={{ marginTop: "10px", fontFamily: "'Dancing Script', cursive" }}>
+    <div style={{ marginTop: "10px", marginLeft: "10px", fontFamily: "'Dancing Script', cursive" }}>
       <h2>Name: {user.name}</h2>
       <h2>Country: {user.country}</h2>
       <h2>Age: {calculateAge(user.dob)}</h2>
@@ -320,9 +365,13 @@ export default function Dashboard() {
 </ul>
 
 {totalPages > 1 && (
-  <div className="navigation-buttons" >
-    <Button colorScheme="blue" onClick={prevPage} disabled={currentPage === 0}>Previous</Button>
-    <Button colorScheme="blue" onClick={nextPage} disabled={currentPage === totalPages - 1}>Next</Button>
+  <div className="navigation-buttons">
+    <div>
+      {currentPage > 0 && <Button colorScheme="blue" onClick={prevPage}>Previous</Button>}
+    </div>
+    <div>
+      <Button colorScheme="blue" onClick={nextPage} disabled={currentPage === totalPages - 1} marginTop="20px">Next</Button>
+    </div>
   </div>
 )}
 </div>

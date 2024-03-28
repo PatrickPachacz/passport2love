@@ -80,7 +80,9 @@ h1 {
   }
 
   .navigation-buttons {
-    margin-left: auto; /* Push navigation buttons to the right */
+    margin-top: 200px; /* Push navigation buttons down */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
   }
   
   .user-card {
