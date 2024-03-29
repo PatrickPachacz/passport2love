@@ -178,24 +178,22 @@ export default function Dashboard() {
       };
   
       const { data } = await axios.get('https://passport2love.onrender.com/api/user', {
-        params: {
-          gender,
-          minAge,
-          maxAge,
-          country,
-        },
         ...config,
       });
   
-      console.log('All users data:', data);
+      // Check if data is an array and not empty
+      if (Array.isArray(data) && data.length > 0) {
+        // Select a random index within the range of data length
+        const randomIndex = Math.floor(Math.random() * data.length);
+        // Get the user object at the random index
+        const randomUser = data[randomIndex];
   
-      // Select a random user from the received data array
-      const randomIndex = Math.floor(Math.random() * data.length);
-      const randomUser = data[randomIndex];
+        console.log('Random user:', randomUser);
   
-      console.log('Random user:', randomUser);
-  
-      setSearchResult([randomUser]); // Set the random user as the search result
+        setSearchResult([randomUser]); // Set the random user as the search result
+      } else {
+        console.error('Error: No users found or invalid data');
+      }
     } catch (error) {
       console.error('Error fetching random user:', error);
     } finally {
@@ -203,10 +201,11 @@ export default function Dashboard() {
     }
   };
   
+  
 
   // Handle random user button click
   const handleRandomUserClick = () => {
-    const confirmed = window.confirm("Are you sure? You only get one random user a day.");
+    const confirmed = window.confirm("Randomly select any user. Continue?");
     if (confirmed) {
       getRandomUser();
     }
