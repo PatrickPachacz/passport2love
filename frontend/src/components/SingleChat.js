@@ -11,7 +11,7 @@ import ProfileModal from "./miscellaneous/ProfileModal";
 import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 import { ChatState } from "../Context/ChatProvider";
-import Lottie from "lottie-react";
+import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
 var socket, selectedChatCompare;
