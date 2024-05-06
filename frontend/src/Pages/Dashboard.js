@@ -375,7 +375,7 @@ export default function Dashboard() {
 )}
 </div>
 ) : (
-<p>No matching users found.</p>
+<p>Searching...</p>
 )}
 
     </div>
