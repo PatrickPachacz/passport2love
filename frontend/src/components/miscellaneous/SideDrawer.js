@@ -66,8 +66,8 @@ function SideDrawer() {
     navigate(`/EditProfile/${user._id}`);
   };
 
-  const navigateToSingle = () => {
-    navigate();
+  const navigateToBlog = () => {
+    navigate("/blog");
   };
 
   const navigateToDashboard = () => {
@@ -254,12 +254,12 @@ function SideDrawer() {
         <Button
           variant="ghost"
           color="black"
-          onClick={navigateToSingle}
+          onClick={navigateToBlog}
           _hover={{ color: 'gray' }}
           ml={2}
         >
           <Text d={{ base: "none", md: "flex" }} px={4} marginTop="10px">
-            Company Guidelines
+            Blog
           </Text>
         </Button>
   

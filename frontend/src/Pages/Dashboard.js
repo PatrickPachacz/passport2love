@@ -375,7 +375,7 @@ export default function Dashboard() {
 )}
 </div>
 ) : (
-<p>Searching...</p>
+<p></p>
 )}
 
     </div>
