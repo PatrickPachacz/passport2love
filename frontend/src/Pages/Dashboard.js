@@ -215,7 +215,7 @@ export default function Dashboard() {
     <main>
       <div className="imageWrapper">
         <img
-          src="./images/backgroundblackwhite.jpg"
+          src="./images/backgroundtreenoir.jpg"
           alt="background"
           className="imageHome"
         />
@@ -297,12 +297,7 @@ export default function Dashboard() {
             <ul className="user-list">
             {usersToShow.map((user) => (
               <li key={user._id} className="user-card">
-               <ReactCountryFlag
-                  countryCode={user.country}
-                  svg
-                  className="flagMatches"
-                  style={{ width: "300px", height: "250px" }}
-                />
+               
     <ReactCountryFlag
       countryCode={user.country}
       svg
@@ -316,18 +311,14 @@ export default function Dashboard() {
         width="100%"
         height="50%"
         borderRadius="0%"
-        opacity="0.9"
         src={user.pic}
       />
     ) : (
       <Image
-        marginTop="-10px"
-        marginLeft="40px"
-        width="70%"
+        width="100%"
         height="50%"
-        borderRadius="45%"
-        opacity="0.9"
-        src="./images/avatar.jpg"
+        borderRadius="0%"
+        src={user.gender === 'male' ? "./images/avatarman.jpg" : "./images/avatarwoman.jpg"}
         alt="Default Avatar"
       />
     )}

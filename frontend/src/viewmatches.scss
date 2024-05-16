@@ -18,12 +18,12 @@ h1 {
     flex-direction: column;
     align-items: center;
     color: black;
-    background-color: rgba(255, 255, 255, 0.384);
+    background-color: rgb(255, 255, 255);
     opacity: 0.9;
     max-width: 250px;
     margin: 10px 20px 10px 2px; /* Adjust the left margin to push it along the left edge */
     padding: 0%;
-    border-radius: 5%;
+    border-radius: 0%;
     box-shadow: 10px 10px 10px rgb(15, 14, 14);
   
   .labelMatches {
@@ -45,7 +45,7 @@ h1 {
       width: 50%;
       padding: 4px;
       border-radius: 5px;
-      border: 1px solid rgb(51, 69, 130);
+      border: 1px solid rgb(4, 6, 12);
       margin-bottom: 10px;
     }
   
@@ -55,7 +55,7 @@ h1 {
       margin-top: 20px;
       width: 50%;
       padding: 4px;
-      background-color: rgb(51, 69, 130);
+      background-color: rgb(2, 27, 109);
       color: #fff;
       border: none;
       border-radius: 5px;

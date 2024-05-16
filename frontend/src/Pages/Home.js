@@ -77,8 +77,8 @@ const Home = () => {
      <div className="centered-text">
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <img src="./images/logolarge.png" style={{ height: '100px', marginBottom: '10px' }} alt="logo" />
-            <Text fontSize="xl" color="black" textAlign="center">
-              International Dating App
+            <Text fontSize="xl" fontFamily="'Dancing Script'" color="black" textAlign="center">
+              International Dating
               <h3>Looking for someone, somewhere?</h3>
               <h2 style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }}>Search here...</h2>
             </Text>
