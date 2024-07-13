@@ -214,11 +214,7 @@ export default function Dashboard() {
   return (
     <main>
       <div className="imageWrapper">
-        <img
-          src="./images/backgroundtreenoir.jpg"
-          alt="background"
-          className="imageHome"
-        />
+        
         <div style={{ width: "100%" }}>
           {user && <SideDrawer />}
         </div>
