@@ -35,11 +35,6 @@ export default function Blog() {
   return (
     <main>
       <div className="imageWrapper">
-        <img
-          src="./images/backgroundair2.jpg"
-          alt="background"
-          className="imageHome"
-        />
         <div style={{ width: "100%", opacity: "0.9"}}>
           {user && <SideDrawer />}
         </div>

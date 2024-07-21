@@ -103,36 +103,39 @@ function Profile() {
 
   return (
     <main>
-      <img
-        src="https://cdn.pixabay.com/photo/2021/08/18/19/23/background-6556393_1280.jpg"
-        className="imageHome"
-        alt="background"
-        style={{ width: "100%" }}
-      />
       {user && <SideDrawer />}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "center", // Center vertically
+          alignItems: "center", 
           padding: "20px",
-          flexWrap: "wrap", // Wrap items if they exceed container width
+          flexWrap: "wrap", 
         }}
       >
-        <div style={{ flex: "1", textAlign: "center", minWidth: "200px", }}>
+        <div style={{ display: "flex", alignItems: "center", minWidth: "200px" }}>
           <Image
-            borderRadius="100px"
-            width="100%"
+            width="20%"
             src={pic}
             alt={name}
             style={{ margin: "0" }}
           />
+          <ReactCountryFlag
+            countryCode={country}
+            svg
+            style={{
+              width: "20%",
+              height: "auto",
+              marginLeft: "10px" // Adjust this value as needed
+            }}
+          />
         </div>
+  
         <div
           style={{
             flex: "1",
             textAlign: "center",
-            minWidth: "200px",
+            minWidth: "20px",
             margin: "20px",
             background: "rgba(255, 255, 255, 0.384)",
             opacity: "0.9",
@@ -153,18 +156,7 @@ function Profile() {
             <strong>Interested in: {genderPreference}</strong>
           </p>
         </div>
-        <div style={{ flex: "1", textAlign: "center", minWidth: "200px" }}>
-          <ReactCountryFlag
-            countryCode={country}
-            svg
-            style={{
-              width: "90%",
-              height: "auto",
-              borderRadius: "100px",
-            }}
-          />
-        </div>
-
+  
          {/* Right Column: Video */}
          <div>
           {video ? (
@@ -183,7 +175,7 @@ function Profile() {
             <Box mt={3} height="400px" />
           )}
         </div>
-
+  
          {/* Message Button */}
       <Button
         colorScheme="blue"
@@ -198,6 +190,7 @@ function Profile() {
       </div>
     </main>
   );
+  
 }
 
 export default Profile;

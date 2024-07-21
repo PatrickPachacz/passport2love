@@ -236,8 +236,8 @@ function SideDrawer() {
             fontFamily="Dancing Script"
             px={5}
             marginTop="10px"
-            marginLeft="30px"
-            paddingLeft="10px"
+            marginLeft="0px"
+            paddingLeft="0px"
             color= 'black'
           >
             Passport2Love
