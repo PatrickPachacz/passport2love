@@ -20,9 +20,11 @@ function Profile() {
   const [pic, setPic] = useState("");
   const [video, setVideo] = useState("");
   const { user, chats, setChats } = ChatState();
-  const [setLoadingChat] = useState(false);
   const navigate = useNavigate();
   const [setSelectedUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [loadingChat, setLoadingChat] = useState(false);
+  
 
   useEffect(() => {
     async function getUser() {
@@ -48,17 +50,17 @@ function Profile() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`https://passport2love.onrender.com/api/chat`, { userId }, config);
-  
+
+      const { data } = await axios.post(
+        'https://passport2love.onrender.com/api/chat',
+        { userId },
+        config
+      );
+
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
-  
-      // Set the selected user ID
-      setSelectedUser(userId);
-  
-      setLoadingChat(false);
+
       onClose();
-  
-      // Navigate to the chat page
+
       navigate("/chats");
     } catch (error) {
       toast({
@@ -69,6 +71,8 @@ function Profile() {
         isClosable: true,
         position: "bottom-left",
       });
+    } finally {
+      setLoadingChat(false);
     }
   };
 
@@ -103,92 +107,116 @@ function Profile() {
 
   return (
     <main>
-      {user && <SideDrawer />}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center", 
-          padding: "20px",
-          flexWrap: "wrap", 
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", minWidth: "200px" }}>
-          <Image
-            width="20%"
-            src={pic}
-            alt={name}
-            style={{ margin: "0" }}
-          />
-          <ReactCountryFlag
-            countryCode={country}
-            svg
-            style={{
-              width: "20%",
-              height: "auto",
-              marginLeft: "10px" // Adjust this value as needed
-            }}
-          />
-        </div>
+  {user && <SideDrawer />}
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: "20px",
+      flexWrap: "wrap",
+      borderTop: "1px solid black"
+    }}
+  >
+
+    {/* User Image */}
+    
+    <div style={{ textAlign: "center" }}>
+      <div style={{ display: "inline-block", position: "relative" }}>
+        <Image
+          width="100%"
+          maxWidth={2000}
+          src={pic}
+          alt={name}
+          style={{ borderRadius: "5%" }}
+        />
+      </div>
+    </div>
   
-        <div
+
+     {/* Description */}
+     <div
+      style={{
+        flex: "1",
+        textAlign: "center",
+        minWidth: "50px",
+        margin: "5px",
+        background: "rgba(255, 255, 255, 0.384)",
+        opacity: "0.9",
+        borderRadius: "50px",
+        border: "1px solid black"
+      }}
+    >
+      <strong style={{ fontSize: "40px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
+
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "10px 0" }}>
+        <ReactCountryFlag
+          countryCode={country}
+          svg
           style={{
-            flex: "1",
-            textAlign: "center",
-            minWidth: "20px",
-            margin: "20px",
-            background: "rgba(255, 255, 255, 0.384)",
-            opacity: "0.9",
-            borderRadius: "100px",
+            width: "10%",
+            height: "auto",
+            border: "1px solid black",
+            marginLeft: "10px"
           }}
-        >
-          <strong style={{ fontSize: "40px", fontFamily: "'Dancing Script', cursive" }}>{name}</strong>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Age: {age}</strong>
-          </p>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Country: {country}</strong>
-          </p>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Gender: {gender}</strong>
-          </p>
-          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
-            <strong>Interested in: {genderPreference}</strong>
-          </p>
-        </div>
-  
-         {/* Right Column: Video */}
-         <div>
-          {video ? (
-            <Box mt={3}>
-              <video
-                width="100%"
-                style={{ margin: "90px 0" }}
-                controls
-                className="videoContainer"
-              >
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </Box>
-          ) : (
-            <Box mt={3} height="400px" />
-          )}
-        </div>
-  
-         {/* Message Button */}
+        />
+        <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive", marginLeft: "10px" }}>
+          <strong>Age: {age}</strong>
+        </p>
+      </div>
+
+      <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+        <strong>Country: {country}</strong>
+      </p>
+      <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+        <strong>Gender: {gender}</strong>
+      </p>
+      <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+        <strong>Interested in: {genderPreference}</strong>
+      </p>
+
+      {/* Message Button */}
       <Button
         colorScheme="blue"
         variant="outline"
-        marginTop="2px"
+        marginTop="10px"
+        marginLeft="10px"
         onClick={() => accessChat(user._id)}
-        style={{ marginTop: "20px" }}
+        isLoading={loadingChat}
+        disabled={loadingChat}
       >
-        Message
+        {loadingChat ? "Accessing Chat" : "Access Chat"}
       </Button>
-      
-      </div>
-    </main>
+    </div>
+
+    {/* Video or Placeholder */}
+    <div style={{ width: '100%', maxWidth: '600px' }}>
+      {video ? (
+        <Box mt={3}>
+          <video
+            width="100%"
+            style={{ marginBottom: '20px', border: "1px solid black" }}
+            controls
+            className="videoContainer"
+          >
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </Box>
+      ) : (
+        <Box mt={3} textAlign="center" padding="20px" background="rgba(255, 255, 255, 0.384)" borderRadius="10px">
+          <p style={{ fontSize: "20px", fontFamily: "'Dancing Script', cursive" }}>
+            User has not uploaded a video.
+          </p>
+        </Box>
+      )}
+    </div>
+
+    
+
+  </div>
+</main>
+
   );
   
 }
