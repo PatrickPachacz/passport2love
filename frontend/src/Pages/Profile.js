@@ -21,8 +21,6 @@ function Profile() {
   const [video, setVideo] = useState("");
   const { user, chats, setChats } = ChatState();
   const navigate = useNavigate();
-  const [setSelectedUser] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
   
 
@@ -180,6 +178,7 @@ function Profile() {
         colorScheme="blue"
         variant="outline"
         marginTop="10px"
+        marginBottom="10px"
         marginLeft="10px"
         onClick={() => accessChat(user._id)}
         isLoading={loadingChat}
