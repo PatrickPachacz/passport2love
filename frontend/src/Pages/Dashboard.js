@@ -11,7 +11,7 @@ import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/react";
 
 export default function Dashboard() {
-  const [search, setSearch] = useState("");
+  const [search] = useState('');
   const [gender, setGender] = useState("");
   const [minAge, setMinAge] = useState("");
   const [maxAge, setMaxAge] = useState("");
