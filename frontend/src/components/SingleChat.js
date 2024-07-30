@@ -4,7 +4,7 @@ import { Box, Text } from "@chakra-ui/layout";
 import "./styles.css";
 import { IconButton, Spinner, useToast } from "@chakra-ui/react";
 import { getSender, getSenderFull } from "../config/ChatLogics";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import ProfileModal from "./miscellaneous/ProfileModal";
@@ -36,7 +36,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
   const { selectedChat, setSelectedChat, user, notification, setNotification } = ChatState();
 
-  const fetchMessages = async () => {
+  const fetchMessages = useCallback(async () => {
     if (!selectedChat) return;
 
     try {
@@ -53,6 +53,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(false);
 
       socket.emit("join chat", selectedChat._id);
+      console.log(`Joined chat: ${selectedChat._id}`);
     } catch (error) {
       toast({
         title: "Error Occurred!",
@@ -63,7 +64,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         position: "bottom",
       });
     }
-  };
+  }, [selectedChat, user.token, toast]);
 
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
@@ -75,7 +76,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        setNewMessage("");
         const { data } = await axios.post(
           "https://passport2love.onrender.com/api/message",
           {
@@ -84,7 +84,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
           config
         );
+        setNewMessage("");
         socket.emit("new message", data);
+        console.log("New message sent: ", data);
         setMessages([...messages, data]);
       } catch (error) {
         toast({
@@ -102,35 +104,39 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
-    socket.on("connected", () => setSocketConnected(true));
-    socket.on("typing", () => setIsTyping(true));
-    socket.on("stop typing", () => setIsTyping(false));
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    fetchMessages();
-
-    selectedChatCompare = selectedChat;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedChat]);
-
-  useEffect(() => {
+    socket.on("connected", () => {
+      setSocketConnected(true);
+      console.log("Socket connected");
+    });
+    socket.on("typing", () => {
+      setIsTyping(true);
+      console.log("Typing...");
+    });
+    socket.on("stop typing", () => {
+      setIsTyping(false);
+      console.log("Stopped typing");
+    });
     socket.on("message received", (newMessageReceived) => {
-      if (
-        !selectedChatCompare || // if chat is not selected or doesn't match the current chat
-        selectedChatCompare._id !== newMessageReceived.chat._id
-      ) {
+      console.log("Message received: ", newMessageReceived);
+      if (!selectedChatCompare || selectedChatCompare._id !== newMessageReceived.chat._id) {
         if (!notification.includes(newMessageReceived)) {
           setNotification([newMessageReceived, ...notification]);
           setFetchAgain(!fetchAgain);
         }
       } else {
-        setMessages([...messages, newMessageReceived]);
+        setMessages((prevMessages) => [...prevMessages, newMessageReceived]);
       }
     });
-  });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [user, notification, setNotification, fetchAgain, setFetchAgain]);
+
+  useEffect(() => {
+    fetchMessages();
+    selectedChatCompare = selectedChat;
+  }, [selectedChat, fetchMessages]);
 
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
@@ -140,8 +146,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     if (!typing) {
       setTyping(true);
       socket.emit("typing", selectedChat._id);
-    } else {
-      console.log("User is typing...");
     }
 
     let lastTypingTime = new Date().getTime();
@@ -152,7 +156,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       if (timeDiff >= timerLength && typing) {
         socket.emit("stop typing", selectedChat._id);
         setTyping(false);
-        console.log("User stopped typing.");
       }
     }, timerLength);
   };
@@ -218,9 +221,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     style={{ marginBottom: 15, marginLeft: 0 }}
                   />
                 </div>
-              ) : (
-                <></>
-              )}
+              ) : null}
 
               <Input
                 variant="filled"
@@ -244,4 +245,3 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 };
 
 export default SingleChat;
-
