@@ -159,10 +159,11 @@ function SideDrawer() {
       alignItems="center"
       bg="rgba(227, 226, 222)"
       p="10px 30px"
-      color="black"
+      color="white"
       borderWidth="5px"
       flexWrap="wrap"
-      border="1px solid grey"
+      border="1px solid black"
+      backgroundColor="black"
     >
       <Box
         flex={{ base: "1", md: "auto" }}
@@ -171,7 +172,7 @@ function SideDrawer() {
         flexGrow="1"
       >
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" color="black" onClick={onOpen} _hover={{ color: 'gray' }}>
+          <Button variant="ghost" color="white" onClick={onOpen} _hover={{ color: 'gray' }}>
             <i className="fas fa-search"></i>
             <Text d={{ base: "none", md: "flex" }} px={2} marginTop="10px">
               Search User
@@ -214,7 +215,7 @@ function SideDrawer() {
   
         <Button
           variant="ghost"
-          color="black"
+          color="white"
           onClick={navigateToChats}
           _hover={{ color: 'gray' }}
           ml={2}
@@ -238,7 +239,7 @@ function SideDrawer() {
             marginTop="10px"
             marginLeft="0px"
             paddingLeft="0px"
-            color= 'black'
+            color= 'white'
           >
             Passport2Love
           </Text>
@@ -253,7 +254,7 @@ function SideDrawer() {
       >
         <Button
           variant="ghost"
-          color="black"
+          color="white"
           onClick={navigateToBlog}
           _hover={{ color: 'gray' }}
           ml={2}
@@ -265,7 +266,7 @@ function SideDrawer() {
   
         <Button
           variant="ghost"
-          color="black"
+          color="white"
           onClick={navigateToProfile}
           _hover={{ color: 'gray' }}
           mr={2}

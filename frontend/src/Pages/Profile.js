@@ -186,6 +186,7 @@ function Profile() {
       >
         {loadingChat ? "Accessing Chat" : "Access Chat"}
       </Button>
+      
     </div>
 
     {/* Video or Placeholder */}
