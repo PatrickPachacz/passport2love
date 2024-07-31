@@ -27,6 +27,7 @@ p {
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgb(15, 14, 14);
   margin-bottom: 20px; /* Space between the search bar and user cards */
+  overflow-x: auto; /* Add horizontal scrolling */
 }
 
 .labelMatches {
