@@ -327,7 +327,7 @@ return (
                       countryCode={user.country}
                       svg
                       className="flagMatches2"
-                      style={{ width: "175px", height: "150px" }}         
+                      style={{ width: "125px", height: "100px" }}         
                     />
                   </div>
                   
