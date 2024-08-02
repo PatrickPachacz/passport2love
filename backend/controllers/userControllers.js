@@ -157,24 +157,10 @@ const authUser = asyncHandler(async (req, res) => {
     }
   });
 
-  const getRandomUser = asyncHandler(async (_, res) => {
-    try {
-      const count = await User.countDocuments();
-      const randomIndex = Math.floor(Math.random() * count);
-      const randomUser = await User.findOne().skip(randomIndex);
-      
-      if (!randomUser) {
-        throw new Error("No users found");
-      }
-      
-      res.json(randomUser);
-    } catch (error) {
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  });
   
   
-  module.exports = { registerUser, authUser, allUsers, getUser, updateProfile, getRandomUser };
+  
+  module.exports = { registerUser, authUser, allUsers, getUser, updateProfile };
 
   
 

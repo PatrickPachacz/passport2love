@@ -163,49 +163,6 @@ export default function Dashboard() {
     }
   };
 
-  const getRandomUser = async () => {
-    try {
-      setLoading(true);
-  
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      };
-  
-      const { data } = await axios.get('https://passport2love.onrender.com/api/user', {
-        ...config,
-      });
-  
-      // Check if data is an array and not empty
-      if (Array.isArray(data) && data.length > 0) {
-        // Select a random index within the range of data length
-        const randomIndex = Math.floor(Math.random() * data.length);
-        // Get the user object at the random index
-        const randomUser = data[randomIndex];
-  
-        console.log('Random user:', randomUser);
-  
-        setSearchResult([randomUser]); // Set the random user as the search result
-      } else {
-        console.error('Error: No users found or invalid data');
-      }
-    } catch (error) {
-      console.error('Error fetching random user:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-  
-
-  // Handle random user button click
-  const handleRandomUserClick = () => {
-    const confirmed = window.confirm("Randomly select any user. Continue?");
-    if (confirmed) {
-      getRandomUser();
-    }
-  };
 
 return (
   <main>
@@ -217,7 +174,7 @@ return (
 
     <div className="container">
       <form className="searchBar" onSubmit={handleSubmit}>
-        <Button colorScheme="blue" onClick={handleRandomUserClick}>Random</Button>
+        
         <label className="labelMatches" htmlFor="gender">
           Select a gender:
         </label>
