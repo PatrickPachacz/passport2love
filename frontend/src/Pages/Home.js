@@ -17,8 +17,8 @@ const Home = () => {
   return (
 
     <main className="image-container">
-      <div className="black-bar" style={{ background: 'rgb(227, 226, 222)', height: '70px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="black" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
+      <div className="black-bar" style={{ background: 'black', height: '70px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="white" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
       </div>
 
       <div className="imageWrapper">
@@ -111,31 +111,26 @@ const Home = () => {
                         <img className="testImg" loading="lazy" src="./images/camera.jpg" alt="camera" />
                       
                     <h1 className="testh1">Video Upload:</h1>
-                    <p>Sometimes a photo is just not enough</p>
-                    <p>Share a brief video expressing your desires in life</p>
-                    <p>What are you looking for in a partner</p>
-                    <p>Short details about yourself and where you're from</p>
+                    <p>Share a brief video</p>
+                    <p>What are you searching for</p>
                     
                     </div>
                     <div class="testimonial">
                       
-                        <img className="testImg" loading="lazy" src="./images/messagenoir.jpg" alt="message"/>
+                        <img className="testImg" loading="lazy" src="./images/iphone.jpg" alt="message"/>
                       
                     <h1 className="testh1">Real-Time Messaging:</h1>
                     <p>Open a dialogue</p>
                     <p>Keep in contact with potential matches</p>
-                    <p>Be open to the possibilites</p>
                     
                     </div>
                     <div class="testimonial">
                       
                         <img className="testImg" loading="lazy" src="./images/couplenoirhug.jpg" alt="couplehugging"/>
                       
-                    <h1 className="testh1">Find your match based on your criteria</h1>
-                    <p>Everyone has their preferences</p>
-                    <p>Searches made by country of origin, age, and gender</p>
-                    <p>Why restrict your search to local areas</p>
-                    <p>Expand your ultimate search to around the globe</p>
+                    <h1 className="testh1">Find your match</h1>
+                    <p>Country of origin, age, and gender</p>
+                    <p>Ultimate search to around the globe</p>
                     
                     </div>
                 </div>
