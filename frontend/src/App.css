@@ -20,6 +20,8 @@
 	width: 100%;
 	height: 100%;
 	z-index: -1;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
   }
 
   
@@ -29,7 +31,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding: 5% 4%;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid black;
+	border-bottom: 1px solid #000000;
 	color: rgb(255, 255, 255);
 	background-color: rgb(227, 226, 222);
 	width: 100%;
@@ -203,6 +206,7 @@
 	position: relative;
 	text-align: center;
 	height: 200;
+	border: 20px solid black;
   }
   
   .download-now-container {

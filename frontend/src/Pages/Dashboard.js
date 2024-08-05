@@ -168,6 +168,12 @@ export default function Dashboard() {
   };
 
 
+
+
+// - Page begins //
+
+
+
   return (
     <main>
       <div className="imageWrapper">
@@ -225,7 +231,6 @@ export default function Dashboard() {
             onChange={handleMaxAgeChange}
             placeholder="Max Age"
           />
-
           <button type="submit">Submit</button>
         </form>
 

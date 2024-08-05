@@ -138,7 +138,7 @@ const Home = () => {
 
             <section className="couple-sitting-container">
               
-                <img src="./images/couplenoir.jpg" loading="lazy" alt="couple" className="couplenoir" />
+                <img src="./images/womanbeach.jpg" loading="lazy" alt="couple" className="couplenoir" />
               
               <div className="download-now-container">
               <div className="download-now">
