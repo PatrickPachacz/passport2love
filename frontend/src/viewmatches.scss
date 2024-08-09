@@ -16,19 +16,20 @@ p {
 
 .searchBar {
   display: flex;
-  flex-direction: row; /* Keep the search bar elements in a row */
-  justify-content: space-between; /* Distribute space evenly */
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   color: black;
   background-color: rgb(255, 255, 255);
   opacity: 0.9;
   width: 100%;
-  padding: 5px;
+  padding: 25px;
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgb(15, 14, 14);
-  margin-bottom: 20px; /* Space between the search bar and user cards */
-  overflow-x: auto; /* Add horizontal scrolling */
+  margin-bottom: 20px;
+  overflow-x: auto;
 }
+
 
 .labelMatches {
   display: block;

@@ -204,7 +204,7 @@ export default function Dashboard() {
               id="country"
               searchable={true}
               required
-              className="react-flags-select"
+              className="select"
               selected={country}
               onSelect={handleCountryChange}
             />
@@ -315,7 +315,7 @@ export default function Dashboard() {
             )}
           </div>
         ) : (
-          <p>No results found</p>
+          <p>Search here</p>
         )}
       </div>
     </main>
