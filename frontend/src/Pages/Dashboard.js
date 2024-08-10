@@ -6,9 +6,9 @@ import axios from "axios";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { useToast } from "@chakra-ui/toast";
 import ReactCountryFlag from 'react-country-flag';
-import ReactFlagsSelect from 'react-flags-select';
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/react";
+import PopupModal from '../components/miscellaneous/PopupModal'; // Adjust import path
 
 export default function Dashboard() {
   const [search] = useState('');
@@ -21,25 +21,23 @@ export default function Dashboard() {
   const [loadingChat, setLoadingChat] = useState(false);
   const { user, chats, setChats } = ChatState();
   const [currentPage, setCurrentPage] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const CardsPerPage = 1;
   const totalPages = Math.ceil(searchResult.length / CardsPerPage);
 
-  // Function to handle navigation to next page
   const nextPage = () => {
     if (currentPage < totalPages - 1) {
       setCurrentPage(currentPage + 1);
     }
   };
 
-  // Function to handle navigation to previous page
   const prevPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
     }
   };
 
-  // Get the subset of users to display based on current page
   const startIndex = currentPage * CardsPerPage;
   const endIndex = Math.min(startIndex + CardsPerPage, searchResult.length);
   const usersToShow = searchResult.slice(startIndex, endIndex);
@@ -54,6 +52,7 @@ export default function Dashboard() {
 
   const handleCountryChange = (countryCode) => {
     setCountry(countryCode);
+    setIsModalOpen(false);
   };
 
   const handleMinAgeChange = (event) => {
@@ -167,13 +166,6 @@ export default function Dashboard() {
     }
   };
 
-
-
-
-// - Page begins //
-
-
-
   return (
     <main>
       <div className="imageWrapper">
@@ -184,7 +176,6 @@ export default function Dashboard() {
 
       <div className="container">
         <form className="searchBar" onSubmit={handleSubmit}>
-          
           <label className="labelMatches" htmlFor="gender">
             Select a gender:
           </label>
@@ -198,17 +189,9 @@ export default function Dashboard() {
           <label className="labelMatches" htmlFor="country">
             Select a country:
           </label>
-          <div className="react-flags-select-container">
-            <ReactFlagsSelect
-              name="country"
-              id="country"
-              searchable={true}
-              required
-              className="select"
-              selected={country}
-              onSelect={handleCountryChange}
-            />
-          </div>
+          <button type="button" onClick={() => setIsModalOpen(true)}>
+            {country || "Select a country"}
+          </button>
 
           <label className="labelMatches" htmlFor="minAge">
             Minimum Age:
@@ -234,6 +217,13 @@ export default function Dashboard() {
           <button type="submit">Submit</button>
         </form>
 
+        <PopupModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          selectedCountry={country}
+          onSelectCountry={handleCountryChange}
+        />
+
         {loading ? (
           <p>Loading...</p>
         ) : searchResult.length > 0 ? (
@@ -243,24 +233,23 @@ export default function Dashboard() {
                 <li key={user._id} className="user-card">
                   <div className="card-content">
                     <div className="user-info">
-                    <div className="user-image">
-                      {user.pic ? (
-                        <Image
-                          width="700px"
-                          height="400px"
-                          
-                          src={user.pic}
-                        />
-                      ) : (
-                        <Image
-                          width="400px"
-                          height="400px"
-                          borderRadius="100%"
-                          src={user.gender === 'male' ? "./images/avatarman.jpg" : "./images/avatarwoman.jpg"}
-                          alt="Default Avatar"
-                        />
-                      )}
-                    </div>
+                      <div className="user-image">
+                        {user.pic ? (
+                          <Image
+                            width="700px"
+                            height="400px"
+                            src={user.pic}
+                          />
+                        ) : (
+                          <Image
+                            width="400px"
+                            height="400px"
+                            borderRadius="100%"
+                            src={user.gender === 'male' ? "./images/avatarman.jpg" : "./images/avatarwoman.jpg"}
+                            alt="Default Avatar"
+                          />
+                        )}
+                      </div>
 
                       <div className="info">
                         <h2>Name: {user.name}</h2>
@@ -296,8 +285,6 @@ export default function Dashboard() {
                         style={{ width: "125px", height: "100px" }}         
                       />
                     </div>
-                    
-                    
                   </div>
                 </li>
               ))}
