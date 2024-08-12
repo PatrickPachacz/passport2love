@@ -87,34 +87,34 @@ const MyChats = () => {
 
   return (
     <Box
-      d={{ base: selectedChat ? 'none' : 'flex', md: 'flex' }}
+      display={{ base: selectedChat ? 'none' : 'flex', md: 'flex' }}
       flexDir="column"
       alignItems="center"
       p={3}
       bg="white"
-      w={{ base: '35%', md: '26%' }}
+      w={{ base: '100%', md: '30%' }}
       borderRadius="lg"
       borderWidth="1px"
     >
       <Box
         pb={3}
         px={5}
-        fontSize={{ base: '10px', md: '20px' }}
+        fontSize={{ base: '17px', md: '20px' }}
         fontFamily="Work sans"
-        d="flex"
-        w="50%"
+        display="flex"
+        w="100%"
         justifyContent="space-between"
         alignItems="center"
       >
         My Chats
       </Box>
       <Box
-        d="flex"
+        display="flex"
         flexDir="column"
         p={3}
         bg="#F8F8F8"
         w="100%"
-        h="87%"
+        h="85%"
         borderRadius="lg"
         overflowY="hidden"
       >
