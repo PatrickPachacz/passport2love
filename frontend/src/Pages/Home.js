@@ -138,14 +138,12 @@ const Home = () => {
 
             <section className="couple-sitting-container">
               
-                <img src="./images/womanbeach.jpg" loading="lazy" alt="couple" className="couplenoir" />
+              <img src="./images/love.jpg" loading="lazy" alt="couple" className="couplenoir" />
+              {/* <div className="download-now-container">
+                  <div className="download-now">
+                  <p>Download Now</p>
+                  </div></div> <div className="blank-box"><p>Google</p></div> */}
               
-              <div className="download-now-container">
-              <div className="download-now">
-              <p>Download Now</p>
-              <div className="blank-box"><p>Google</p></div> {/* Replace with Google Play logo */}
-              </div>
-              </div>
             </section>
 
             <section class="social-media">
