@@ -14,7 +14,6 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: '*', // Allow all origins for testing
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
