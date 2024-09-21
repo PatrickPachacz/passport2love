@@ -1,18 +1,4 @@
-/* Homepage */
-
-.openingDiv {
-	position: absolute;
-	font-family: cursive;
-	max-width: 50%;
-	top: 30%;
-	left: 70%;
-	transform: translate(-50%, -50%);
-	color: white;
-	font-size: 30px;
-	font-weight: bold;
-	text-align: center;
-  }
-  
+/* Homepage */  
   .imageHome {
 	position: fixed;
 	top: 0;
@@ -26,7 +12,7 @@
 
   
   .app-info {
-	margin-top: 50px;
+	margin-top: 0px;
 	font-size: 16px;
 	display: flex;
 	flex-wrap: wrap;
@@ -110,31 +96,6 @@
   .app-info li {
 	margin-bottom: 100px;
 	padding-right: 60px;
-  }
-  
-  .videoglobe {
-	margin-left: 0px;
-  }
-  
-
-  .video-description-list {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding-left: 100px;
-	list-style: none;
-  }
-  
-  .video-description-list li {
-	display: flex;
-	align-items: center;
-	margin-top: 30px;
-  }
-  
-  .videoHome {
-	max-width: 35%;
-	border-radius: 40%;
-	margin-right: 20px;
   }
   
   .testimonials {

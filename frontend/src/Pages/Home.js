@@ -17,7 +17,7 @@ const Home = () => {
   return (
 
     <main className="image-container">
-      <div className="black-bar" style={{ background: 'black', height: '70px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="black-bar" style={{ background: 'black', height: '50px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="white" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
       </div>
 
