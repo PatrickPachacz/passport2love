@@ -1,10 +1,9 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../models/userModel"); // Update the import statement
+const User = require("../models/userModel");
 const generateToken = require("../config/generateToken");
 
-
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, pic, country, dob, gender, genderPreference, video, } = req.body;
+  const { name, email, password, pic, country, dob, gender, genderPreference, video } = req.body;
 
   if (!name || !email || !password || !country || !dob || !gender || !genderPreference) {
     res.status(400);
@@ -31,12 +30,13 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+    const picUrl = user.pic ? user.pic.replace('http://', 'https://') : null; // Ensure pic URL uses HTTPS
     res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      pic: user.pic,
+      pic: picUrl,
       country: user.country,
       dob: user.dob,
       gender: user.gender,
@@ -56,12 +56,13 @@ const authUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({ email });
   
     if (user && (await user.matchPassword(password))) {
+      const picUrl = user.pic ? user.pic.replace('http://', 'https://') : null; // Ensure pic URL uses HTTPS
       res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-        pic: user.pic,
+        pic: picUrl,
         dob: user.dob,
         country: user.country,
         gender: user.gender,
@@ -73,10 +74,9 @@ const authUser = asyncHandler(async (req, res) => {
       res.status(401);
       throw new Error("Invalid Email or Password");
     }
-  });
+});
 
-
-  const allUsers = asyncHandler(async (req, res) => {
+const allUsers = asyncHandler(async (req, res) => {
     const keyword = req.query.search ? {
       $or: [
         { name: { $regex: req.query.search, $options: "i" } },
@@ -89,7 +89,6 @@ const authUser = asyncHandler(async (req, res) => {
       keyword.gender = gender;
     }
     if (ageRange) {
-      // Assuming age is stored in a field called "age" in your User model
       const [minAge, maxAge] = ageRange.split("-");
       keyword.age = { $gte: minAge, $lte: maxAge };
     }
@@ -98,19 +97,25 @@ const authUser = asyncHandler(async (req, res) => {
     }
   
     const users = await User.find({ _id: { $ne: req.user._id }, ...keyword });
+    users.forEach(user => {
+        if (user.pic) {
+            user.pic = user.pic.replace('http://', 'https://'); // Ensure pic URL uses HTTPS
+        }
+    });
     res.send(users);
-  });
+});
 
-  const getUser = asyncHandler(async (req, res) => {
+const getUser = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
   
     if (user) {
+      const picUrl = user.pic ? user.pic.replace('http://', 'https://') : null; // Ensure pic URL uses HTTPS
       res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-        pic: user.pic,
+        pic: picUrl,
         dob: user.dob,
         country: user.country,
         gender: user.gender,
@@ -121,9 +126,9 @@ const authUser = asyncHandler(async (req, res) => {
       res.status(404);
       throw new Error("User not found");
     }
-  });
+});
 
-  const updateProfile = asyncHandler(async (req, res) => {
+const updateProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id);
   
     if (user) {
@@ -138,13 +143,14 @@ const authUser = asyncHandler(async (req, res) => {
       }
   
       const updatedUser = await user.save();
+      const picUrl = updatedUser.pic ? updatedUser.pic.replace('http://', 'https://') : null; // Ensure pic URL uses HTTPS
   
       res.json({
         _id: updatedUser._id,
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
-        pic: updatedUser.pic,
+        pic: picUrl,
         dob: updatedUser.dob,
         country: updatedUser.country,
         gender: updatedUser.gender,
@@ -155,14 +161,6 @@ const authUser = asyncHandler(async (req, res) => {
       res.status(404);
       throw new Error("User not found");
     }
-  });
+});
 
-  
-  
-  
-  module.exports = { registerUser, authUser, allUsers, getUser, updateProfile };
-
-  
-
-
-  
+module.exports = { registerUser, authUser, allUsers, getUser, updateProfile };
