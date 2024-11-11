@@ -10,6 +10,54 @@
 	border-right: 1px solid black;
   }
 
+  .image-montage {
+	opacity: 0; /* Start with invisible */
+	transform: translateY(20px); /* Add slight offset for effect */
+	transition: opacity 2s ease, transform 1.5s ease; /* Smooth fade-in effect */
+  }
+
+  /* Visible state */
+.image-montage.fade-in {
+	opacity: 1; /* Fully visible */
+	transform: translateY(0); /* No offset when visible */
+  }
+
+.centered-text {
+	opacity: 0; /* Start with invisible */
+	transform: translateY(50px); /* Add slight offset for effect */
+	transition: opacity 2s ease, transform 1.5s ease; /* Smooth fade-in effect */
+}
+
+.centered-text.fade-in {
+	opacity: 1; /* Fully visible */
+	transform: translateY(0); /* No offset when visible */
+}
+
+.testimonial-container {
+	opacity: 0; /* Start with invisible */
+	transform: translateY(20px); /* Add slight offset for effect */
+	transition: opacity 2s ease, transform 1.5s ease; /* Smooth fade-in effect */
+}
+
+.testimonial-container.fade-in{
+	opacity: 1; /* Fully visible */
+	transform: translateY(0); /* No offset when visible */
+}
+
+  .fade-in {
+	opacity: 0; /* Make it invisible */
+	transform: translateX(0px);
+	transition: opacity 2s ease, transform 5s ease;
+  }
+  
+  /* Visible state when fading in */
+  .fade-in-visible {
+	opacity: 1; /* Fully visible */
+	transform: translateX(0);
+	
+  }
+  
+
   
   .app-info {
 	margin-top: 0px;

@@ -31,5 +31,28 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <!-- Add the fade-in JavaScript code here -->
+    <script>
+      // Target the element you want to fade in
+      const montageElement = document.querySelector('.image-montage');
+
+      const observerOptions = {
+        threshold: 0.5, // Element should be 50% visible before triggering the fade-in
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-visible'); // Add the fade-in-visible class to trigger the fade-in effect
+            observer.unobserve(entry.target); // Stop observing once the class is added
+          }
+        });
+      }, observerOptions);
+
+      // Start observing the element
+      observer.observe(montageElement);
+    </script>
+
   </body>
 </html>
