@@ -14,7 +14,7 @@ const Home = () => {
   }, [navigate]);
 
   // Use IntersectionObserver hook for different elements
-  const imageVisible = useIntersectionObserver({ target: '.imageHome' });
+  
   const textVisible = useIntersectionObserver({ target: '.centered-text' });
   const montageVisible = useIntersectionObserver({ target: '.image-montage' });
   const testimonialVisible = useIntersectionObserver({ target: '.testimonial-container' });
