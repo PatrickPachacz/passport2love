@@ -14,7 +14,8 @@ const Home = () => {
   }, [navigate]);
 
   // Use IntersectionObserver hook for different elements
-  
+  // Observe the login/sign-up box visibility
+  const loginSignupVisible = useIntersectionObserver({ target: '.login-signup-box' });
   const textVisible = useIntersectionObserver({ target: '.centered-text' });
   const montageVisible = useIntersectionObserver({ target: '.image-montage' });
   const testimonialVisible = useIntersectionObserver({ target: '.testimonial-container' });
@@ -29,7 +30,7 @@ const Home = () => {
         <img src="./images/beige.jpg" loading="lazy" className={`imageHome`} alt="background" />
       </div>
 
-      <Container maxW='xl' centerContent>
+      <Container maxW='xl' centerContent className={`login-signup-box ${loginSignupVisible ? 'fade-in' : ''}`}>
         <Box
           d='flex'
           justifyContent="center"

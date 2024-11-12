@@ -44,6 +44,17 @@
 	transform: translateY(0); /* No offset when visible */
 }
 
+.login-signup-box.fade-in {
+	opacity: 1; /* Fully visible */
+	transform: translateY(0); /* No offset when visible */
+  }
+
+.login-signup-box {
+	opacity: 0; /* Start with invisible */
+	transform: translateY(20px); /* Add slight offset for effect */
+	transition: opacity 2s ease, transform 1.5s ease; /* Smooth fade-in effect */
+  }
+
   .fade-in {
 	opacity: 0; /* Make it invisible */
 	transform: translateX(0px);
