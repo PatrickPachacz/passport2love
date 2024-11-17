@@ -412,6 +412,20 @@
   .profileInfo p:last-of-type {
 	margin-bottom: 0;
   }
+
+/* Initial state: small size and scaled down */
+.observable-div {
+	transform: scale(0); /* Fully collapsed */
+	opacity: 0; /* Hidden initially */
+	transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Smooth scaling and fading */
+	transform-origin: center; /* Ensure it scales from the center */
+  }
+  
+  /* When the div becomes visible */
+  .observable-div.fade-in {
+	transform: scale(1); /* Full size */
+	opacity: 1; /* Fully visible */
+  }
   
   .userImg {
 	padding: 2%;

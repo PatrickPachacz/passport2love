@@ -9,6 +9,7 @@ import { Button } from "@chakra-ui/button";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/toast";
 import { useDisclosure } from "@chakra-ui/hooks";
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
 
 function Profile() {
   const { id } = useParams();
@@ -38,6 +39,8 @@ function Profile() {
     }
     getUser();
   }, [id]);
+
+  const isVisible = useIntersectionObserver({ target: ".observable-div" });
 
   const accessChat = async (userId) => {
     try {
@@ -134,6 +137,7 @@ function Profile() {
 
      {/* Description */}
      <div
+      className={`observable-div ${isVisible ? "fade-in" : ""}`}
       style={{
         flex: "1",
         textAlign: "center",
