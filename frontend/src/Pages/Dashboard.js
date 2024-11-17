@@ -189,7 +189,11 @@ export default function Dashboard() {
           <label className="labelMatches" htmlFor="country">
             Select a country:
           </label>
-          <button type="button" onClick={() => setIsModalOpen(true)}>
+          <button type="button" style={{
+            border: "1px solid #000",
+            borderRadius: "5px",      
+            padding: "5px 20px"      
+          }} onClick={() => setIsModalOpen(true)}>
             {country || "Select a country"}
           </button>
 
