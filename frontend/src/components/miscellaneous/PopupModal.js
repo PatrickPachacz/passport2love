@@ -8,7 +8,7 @@ const PopupModal = ({ isOpen, onClose, selectedCountry, onSelectCountry }) => {
   return (
     <div className="popup-modal">
       <div className="popup-content">
-        <button className="close-btn" onClick={onClose}>×</button>
+        <button style={{ marginLeft: '250px', fontSize: '24px'}}  onClick={onClose}>×</button>
         <ReactFlagsSelect
           name="country"
           id="country"
