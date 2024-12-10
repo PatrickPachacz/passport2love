@@ -87,7 +87,7 @@ const EditProfile = () => {
       );
       const videoUrl = response.data.url;
       setVideo(videoUrl);
-      setVideoModified(true); // Flag to indicate modification
+      setVideoModified(true); 
       setLoading(false);
       toast({
         title: "Video uploaded successfully",

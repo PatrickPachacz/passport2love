@@ -13,8 +13,7 @@ const Home = () => {
     if (user) navigate("/dashboard");
   }, [navigate]);
 
-  // Use IntersectionObserver hook for different elements
-  // Observe the login/sign-up box visibility
+ 
   const loginSignupVisible = useIntersectionObserver({ target: '.login-signup-box' });
   const textVisible = useIntersectionObserver({ target: '.centered-text' });
   const montageVisible = useIntersectionObserver({ target: '.image-montage' });
@@ -35,7 +34,7 @@ const Home = () => {
           d='flex'
           justifyContent="center"
           p={10}
-          bg={'rgba(255, 255, 255, 0)'} // Change the opacity value here
+          bg={'rgba(255, 255, 255, 0)'} 
           color="rgb(128, 0, 0)"
           w="100%"
           m="40px 0 20px 0"

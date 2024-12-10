@@ -81,8 +81,6 @@ const MyChats = () => {
     const userFromLocalStorage = JSON.parse(localStorage.getItem('userInfo'));
     setLoggedUser(userFromLocalStorage);
     fetchChats(); // Include fetchChats as a dependency
-  
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
