@@ -131,7 +131,7 @@ const Home = () => {
         <a href="https://www.instagram.com/yourpage" rel="noopener noreferrer" target="_blank">
           <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/instagram-86-433323.png" alt="couple"/> 
         </a>
-        <p>Copyright passport2love.com 2023-2024. All rights reserved.</p>
+        <p>Copyright passport2love.com 2025. All rights reserved.</p>
       </section>
     </main>
   );
