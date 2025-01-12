@@ -5,14 +5,14 @@ import { Box, Stack, Text, Flex, Button } from '@chakra-ui/react';
 import ChatLoading from './ChatLoading';
 import { getSender } from '../config/ChatLogics';
 import axios from 'axios';
+import { useCallback } from 'react';
 
 const MyChats = () => {
   const [loggedUser, setLoggedUser] = useState(null);
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
-
   const toast = useToast();
 
-  const fetchChats = async () => {
+  const fetchChats = useCallback(async () => {
     try {
       const config = {
         headers: {
@@ -24,18 +24,18 @@ const MyChats = () => {
 
       // Filter out chats marked as deleted
       const nonDeletedChats = data.filter((chat) => !chat.deleted);
-      setChats(nonDeletedChats);
-    } catch (error) {
-      toast({
-        title: 'Error Occurred!',
-        description: 'Failed to Load the chats',
-        status: 'error',
-        duration: 5000,
-        isClosable: true,
-        position: 'bottom-left',
-      });
-    }
-  };
+    setChats(nonDeletedChats);
+  } catch (error) {
+    toast({
+      title: 'Error Occurred!',
+      description: 'Failed to Load the chats',
+      status: 'error',
+      duration: 5000,
+      isClosable: true,
+      position: 'bottom-left',
+    });
+  }
+}, [user, setChats, toast]);
 
   const handleDeleteChat = async (chatId) => {
     const confirmation = window.confirm('Are you sure you want to delete this chat?');
@@ -80,8 +80,13 @@ const MyChats = () => {
   useEffect(() => {
     const userFromLocalStorage = JSON.parse(localStorage.getItem('userInfo'));
     setLoggedUser(userFromLocalStorage);
-    fetchChats(); // Include fetchChats as a dependency
   }, []);
+  
+  useEffect(() => {
+    if (user) {
+      fetchChats(); // Fetch chats when `user` state is set
+    }
+  }, [user, fetchChats]); 
 
   return (
     <Box
