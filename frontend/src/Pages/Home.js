@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <main className="image-container" style={{ background: "linear-gradient(to bottom right,rgb(247, 249, 254),rgb(217, 77, 17))" }}>
       <div className="black-bar" style={{ bbackground: "linear-gradient(to bottom right,rgb(247, 249, 254),rgb(79, 102, 130))", height: '50px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="black" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
+        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="black" marginRight="50px" marginLeft="40px" marginTop="100px" >Passport2Love</Text>
       </div>
 
       
@@ -115,7 +115,7 @@ const Home = () => {
       </section>
 
       <section className="couple-sitting-container" >
-        <img src="./images/love.jpg" loading="lazy" alt="couple" className="couplenoir" />
+        <img src="./images/aiimage.jpg" loading="lazy" alt="couple" className="couplenoir" />
       </section>
 
       <section className="social-media">
