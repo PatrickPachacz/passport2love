@@ -20,15 +20,12 @@ const Home = () => {
   const testimonialVisible = useIntersectionObserver({ target: '.testimonial-container' });
 
   return (
-    <main className="image-container">
-      <div className="black-bar" style={{ background: 'black', height: '50px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="white" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
+    <main className="image-container" style={{ background: "linear-gradient(to bottom right,rgb(247, 249, 254),rgb(217, 77, 17))" }}>
+      <div className="black-bar" style={{ bbackground: "linear-gradient(to bottom right,rgb(247, 249, 254),rgb(79, 102, 130))", height: '50px', width: '100%', opacity: '0.9', top: 0, left: 0, zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ fontSize: "42px", fontFamily: "'Dancing Script', cursive" }} color="black" marginRight="50px" marginLeft="40px" >Passport2Love</Text>
       </div>
 
-      <div className="imageWrapper">
-        <img src="./images/beige.jpg" loading="lazy" className={`imageHome`} alt="background" />
-      </div>
-
+      
       <Container maxW='xl' centerContent className={`login-signup-box ${loginSignupVisible ? 'fade-in' : ''}`}>
         <Box
           d='flex'
@@ -74,8 +71,7 @@ const Home = () => {
         </div>
 
         <div className={`centered-text ${textVisible ? 'fade-in' : ''}`}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <img src="./images/logolarge.png" style={{ height: '100px', marginBottom: '10px' }} alt="logo" />
+          <div style={{  display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Text fontSize="xl" fontFamily="'Dancing Script'" color="black" textAlign="center">
               International Dating
               <h3>Looking for someone, somewhere?</h3>
@@ -104,12 +100,6 @@ const Home = () => {
         <h2>About us</h2>
         <div className={`testimonial-container ${testimonialVisible ? 'fade-in' : ''}`}>
           <div className="testimonial">
-            <img className="testImg" loading="lazy" src="./images/camera.jpg" alt="camera" />
-            <h1 className="testh1">Video Upload:</h1>
-            <p>Share a brief video</p>
-            <p>What are you searching for</p>
-          </div>
-          <div className="testimonial">
             <img className="testImg" loading="lazy" src="./images/iphone.jpg" alt="message"/>
             <h1 className="testh1">Real-Time Messaging:</h1>
             <p>Open a dialogue</p>
@@ -124,7 +114,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="couple-sitting-container">
+      <section className="couple-sitting-container" >
         <img src="./images/love.jpg" loading="lazy" alt="couple" className="couplenoir" />
       </section>
 

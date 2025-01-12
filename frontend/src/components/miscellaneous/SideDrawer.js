@@ -259,9 +259,6 @@ function SideDrawer() {
           _hover={{ color: 'gray' }}
           ml={2}
         >
-          <Text d={{ base: "none", md: "flex" }} px={4} marginTop="10px">
-            Blog
-          </Text>
         </Button>
   
         <Button

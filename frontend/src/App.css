@@ -71,15 +71,12 @@
 
   
   .app-info {
-	margin-top: 0px;
 	font-size: 16px;
 	display: flex;
 	flex-wrap: wrap;
 	padding: 5% 4%;
-	border-top: 1px solid black;
-	border-bottom: 1px solid #000000;
 	color: rgb(255, 255, 255);
-	background-color: rgb(227, 226, 222);
+	background-color: linear-gradient(to bottom right,rgb(247, 249, 254),rgb(217, 77, 17));
 	width: 100%;
 	justify-content: space-between; /* Align items to start and end of container */
   }
@@ -158,7 +155,7 @@
   }
   
   .testimonials {
-	background-color: rgb(227, 226, 222);
+	background-color: linear-gradient(to bottom right,rgb(247, 249, 254),rgb(217, 77, 17));
 	color: black;
 	padding: 50px;
 	font-size: 24px;
@@ -179,10 +176,10 @@
   }
   
   .testimonial {
-	background-color: rgb(227, 226, 222);
-	color: gray;
+	background-color: linear-gradient(to bottom right,rgb(247, 249, 254),rgb(217, 77, 17));
+	color: rgb(0, 0, 0);
 	border-radius: 20px; /* Reduced border-radius for a smaller look */
-	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 4px 4px 10px rgba(221, 195, 173, 0.1);
 	padding: 40px; /* Reduced padding for a smaller look */
 	text-align: center;
 	margin-bottom: 20px; /* Adjusted bottom margin for less space after the last paragraph */
@@ -197,6 +194,7 @@
 	height: 300px; /* Adjust height as necessary */
 	object-fit: cover; /* Ensures images cover the specified area without distortion */
 	border-radius: 10%;
+	border: 5px solid black;
   }
   
   
