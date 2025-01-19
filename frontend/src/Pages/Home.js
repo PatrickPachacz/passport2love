@@ -4,6 +4,9 @@ import Login from '../components/Auth/Login';
 import Signup from '../components/Auth/Signup';
 import { useNavigate } from "react-router-dom";
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -51,8 +54,24 @@ const Home = () => {
               </TabPanel>
             </TabPanels>
           </Tabs>
+          
         </Box>
+
+        <i
+          className="fa-solid fa-circle-down"
+          style={{
+           fontSize: '40px',
+            marginTop: '-40px',
+            marginBottom: '20px',
+           position: 'relative',
+            top: '-50px',
+            color: 'rgb(128, 0, 0)',
+          }}
+        ></i>
+        
       </Container>
+
+      
 
       <div className="app-info">
         <div className={`image-montage ${montageVisible ? 'fade-in' : ''}`}>
