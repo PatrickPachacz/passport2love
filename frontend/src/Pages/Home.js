@@ -125,9 +125,6 @@ const Home = () => {
         <a href="https://www.youtube.com/channel/yourchannel" rel="noopener noreferrer" target="_blank">
           <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/youtube-1464540-1239451.png" alt="couple"/>
         </a>
-        <a href="https://www.tiktok.com/@yourhandle" rel="noopener noreferrer" target="_blank">
-          <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/tiktok-2270636-1891163.png" alt="couple"/>
-        </a>
         <a href="https://www.instagram.com/yourpage" rel="noopener noreferrer" target="_blank">
           <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/instagram-86-433323.png" alt="couple"/> 
         </a>
