@@ -119,15 +119,6 @@ const Home = () => {
       </section>
 
       <section className="social-media">
-        <a href="https://www.facebook.com/yourpage" rel="noopener noreferrer" target="_blank">
-          <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/facebook-social-media-fb-logo-square-44659.png" alt="couple"/>
-        </a>
-        <a href="https://www.youtube.com/channel/yourchannel" rel="noopener noreferrer" target="_blank">
-          <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/youtube-1464540-1239451.png" alt="couple"/>
-        </a>
-        <a href="https://www.instagram.com/yourpage" rel="noopener noreferrer" target="_blank">
-          <img width="50" height="50" viewBox="0 0 24 24" fill="none" src="https://cdn.iconscout.com/icon/free/png-256/instagram-86-433323.png" alt="couple"/> 
-        </a>
         <p>Copyright passport2love.com 2025. All rights reserved.</p>
       </section>
     </main>
