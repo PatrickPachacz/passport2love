@@ -60,7 +60,7 @@ const Home = () => {
         <i
           className="fas fa-arrow-down"
           style={{
-           fontSize: '40px',
+           fontSize: '30px',
             marginTop: '-40px',
             marginBottom: '20px',
            position: 'relative',
