@@ -4,7 +4,7 @@ import Login from '../components/Auth/Login';
 import Signup from '../components/Auth/Signup';
 import { useNavigate } from "react-router-dom";
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 
 
@@ -58,7 +58,7 @@ const Home = () => {
         </Box>
 
         <i
-          className="fa-solid fa-circle-down"
+          className="fas fa-arrow-down"
           style={{
            fontSize: '40px',
             marginTop: '-40px',
@@ -68,7 +68,7 @@ const Home = () => {
             color: 'rgb(128, 0, 0)',
           }}
         ></i>
-        
+       
       </Container>
 
       
