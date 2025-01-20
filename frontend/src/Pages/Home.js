@@ -40,7 +40,7 @@ const Home = () => {
           m="40px 0 20px 0"
         />
         <Box bg={'rgba(255, 255, 255, 0.8)'} w="100%" p={4} borderRadius="lg" color="black" borderWidth="1px" m="0 0 260px 0">
-          <Tabs variant='soft-rounded' colorScheme='gray'>
+          <Tabs variant='soft-rounded' colorScheme='cyan'>
             <TabList mb="1em">
               <Tab width="50%">Login</Tab>
               <Tab width="50%">Sign up</Tab>
