@@ -237,7 +237,7 @@ function SideDrawer() {
             fontFamily="Dancing Script"
             px={5}
             marginTop="10px"
-            marginLeft="-20px"
+            marginLeft="-50px"
             paddingLeft="0px"
             color= 'white'
           >
