@@ -84,7 +84,7 @@ const MyChats = () => {
   
   useEffect(() => {
     if (user) {
-      fetchChats(); // Fetch chats when `user` state is set
+      fetchChats(); 
     }
   }, [user, fetchChats]); 
 

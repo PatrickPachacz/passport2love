@@ -66,9 +66,6 @@ function SideDrawer() {
     navigate(`/EditProfile/${user._id}`);
   };
 
-  const navigateToBlog = () => {
-    navigate("/blog");
-  };
 
   const navigateToDashboard = () => {
     navigate("/dashboard");
@@ -132,14 +129,11 @@ function SideDrawer() {
       const { data } = await axios.post("https://passport2love.onrender.com/api/chat", { userId }, config);
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
-
-      // Set the selected user ID
+    
       setSelectedUser(data.users.find((u) => u._id === userId));
-
       setLoadingChat(false);
       onClose();
 
-      // Navigate to the chat page
       navigate("/chats");
     } catch (error) {
       toast({
@@ -252,14 +246,6 @@ function SideDrawer() {
         justifyContent="flex-end"
         flexGrow="1"
       >
-        <Button
-          variant="ghost"
-          color="white"
-          onClick={navigateToBlog}
-          _hover={{ color: 'gray' }}
-          ml={2}
-        >
-        </Button>
   
         <Button
           variant="ghost"
@@ -282,8 +268,8 @@ function SideDrawer() {
             <MenuButton p={1}>
             {notification.length > 0 && (
             <Badge
-              colorScheme="red"  // Customize the badge color here
-              fontSize="0.8em"   // Customize the badge font size here
+              colorScheme="red"  
+              fontSize="0.8em"   
               borderRadius="full"
               px={2}
               py={1}

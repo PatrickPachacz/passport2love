@@ -1,4 +1,3 @@
-// src/hooks/useIntersectionObserver.js
 import { useEffect, useState } from 'react';
 
 const useIntersectionObserver = (options = {}) => {
