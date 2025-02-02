@@ -159,12 +159,7 @@ function SideDrawer() {
       border="1px solid black"
       backgroundColor="black"
     >
-      <Box
-        flex={{ base: "1", md: "auto" }}
-        display="flex"
-        alignItems="center"
-        flexGrow="1"
-      >
+    
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
           <Button variant="ghost" color="white" onClick={onOpen} _hover={{ color: 'gray' }}>
             <i className="fas fa-search"></i>
@@ -218,21 +213,20 @@ function SideDrawer() {
             Go to Chats
           </Text>
         </Button>
-      </Box>
+      
   
       <Flex alignItems="center" justifyContent="center" flex="1" color="black">
         <Button
           variant="ghost"
           onClick={navigateToDashboard}
           _hover={{ color: 'gray' }}
+          ml={-24}
+
         >
           <Text
             fontSize="25px"
             fontFamily="Dancing Script"
             px={5}
-            marginTop="10px"
-            marginLeft="-50px"
-            paddingLeft="0px"
             color= 'white'
           >
             Passport2Love
@@ -240,12 +234,6 @@ function SideDrawer() {
         </Button>
       </Flex>
   
-      <Box
-        flex={{ base: "1", md: "auto" }}
-        display="flex"
-        justifyContent="flex-end"
-        flexGrow="1"
-      >
   
         <Button
           variant="ghost"
@@ -287,7 +275,7 @@ function SideDrawer() {
               {notification.map((notif) => (
                 <MenuItem
                   key={notif._id}
-                   onClick={() => navigateToChat(notif.chat)} // Call navigateToChat function with the selected chat
+                   onClick={() => navigateToChat(notif.chat)} 
               >
                   {notif.chat.isGroupChat
                     ? `New Message in ${notif.chat.chatName}`
@@ -304,7 +292,7 @@ function SideDrawer() {
             </MenuList>
           </Menu>
         </div>
-      </Box>
+  
     </Flex>
   );
   
