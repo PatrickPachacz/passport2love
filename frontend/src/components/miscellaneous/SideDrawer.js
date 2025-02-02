@@ -19,7 +19,7 @@ import {
 } from "@chakra-ui/modal";
 import { Tooltip } from "@chakra-ui/tooltip";
 import { BellIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useToast } from "@chakra-ui/toast";
@@ -28,7 +28,6 @@ import { Spinner } from "@chakra-ui/spinner";
 import { getSender } from "../../config/ChatLogics";
 import UserListItem from "../UserAvatar/UserListItem";
 import { ChatState } from "../../Context/ChatProvider";
-import { Link } from "react-router-dom";
 
 function SideDrawer() {
   const [search, setSearch] = useState("");
@@ -67,13 +66,19 @@ function SideDrawer() {
   };
 
 
-  const navigateToDashboard = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+const navigateToDashboard = () => {
+  if (location.pathname === "/dashboard") {
+    window.location.reload();
+  } else {
     navigate("/dashboard");
-  };
+  }
+};
 
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const navigate = useNavigate();
 
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
@@ -161,7 +166,7 @@ function SideDrawer() {
     >
     
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
-          <Button variant="ghost" color="white" onClick={onOpen} _hover={{ color: 'gray' }}>
+          <Button variant="ghost" color="white" onClick={onOpen} _hover={{ color: 'gray' }} _active={{ backgroundColor: 'black' }}>
             <i className="fas fa-search"></i>
             <Text d={{ base: "none", md: "flex" }} px={2} marginTop="10px">
               Search User
@@ -208,6 +213,7 @@ function SideDrawer() {
           onClick={navigateToChats}
           _hover={{ color: 'gray' }}
           ml={2}
+          _active={{ backgroundColor: 'black' }}
         >
           <Text d={{ base: "none", md: "flex" }} px={4} marginTop="10px">
             Go to Chats
@@ -219,15 +225,18 @@ function SideDrawer() {
         <Button
           variant="ghost"
           onClick={navigateToDashboard}
-          _hover={{ color: 'gray' }}
           ml={-24}
-
+          _active={{ backgroundColor: 'black' }}
+          _hover={{ backgroundColor: 'black' }}
+          backgroundColor="black"
         >
           <Text
             fontSize="25px"
             fontFamily="Dancing Script"
             px={5}
             color= 'white'
+            _hover={{ color: 'gray' }}
+            
           >
             Passport2Love
           </Text>
@@ -241,6 +250,7 @@ function SideDrawer() {
           onClick={navigateToProfile}
           _hover={{ color: 'gray' }}
           mr={2}
+          _active={{ backgroundColor: 'black' }}
         >
           {user ? (
             <Link to={`/Profile/${user._id}`}>
