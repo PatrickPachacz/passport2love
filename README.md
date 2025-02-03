@@ -13,6 +13,10 @@ Readme: In process
 
 ![image](https://github.com/user-attachments/assets/186d4cf0-d490-4b94-8045-0beaeb67c6d2)
 
+![landingpage2](https://github.com/user-attachments/assets/8b59526a-9134-4552-a3d0-e00fc1666b88)
+
+![landingpage3](https://github.com/user-attachments/assets/4ed00e4b-f86e-449a-8a78-d1c115cb8611)
+
 # Dashboard
 <p>Allows user to interact with different features:<br>
     1. Searching for other users<br>
