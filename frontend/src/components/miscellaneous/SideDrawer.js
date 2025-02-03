@@ -18,7 +18,7 @@ import {
   DrawerOverlay,
 } from "@chakra-ui/modal";
 import { Tooltip } from "@chakra-ui/tooltip";
-import { BellIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, BellIcon } from "@chakra-ui/icons";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
@@ -47,6 +47,7 @@ function SideDrawer() {
 
   console.log(user);
 
+
   const navigateToChats = () => {
     navigate("/chats");
   };
@@ -54,7 +55,7 @@ function SideDrawer() {
   const navigateToChat = (chat) => {
     setSelectedChat(chat);
     setNotification(notification.filter((n) => n.chat._id !== chat._id));
-    navigate("/chats"); // Navigate to the chat page
+    navigate("/chats"); 
   };
 
   const navigateToProfile = () => {
@@ -160,17 +161,36 @@ const navigateToDashboard = () => {
       p="10px 30px"
       color="white"
       borderWidth="5px"
-      flexWrap="wrap"
       border="1px solid black"
       backgroundColor="black"
+      h="60px" 
     >
+
+
+    <Button
+      variant="ghost"
+      onClick={navigateToDashboard}
+      _active={{ backgroundColor: 'black' }}
+      _hover={{ backgroundColor: 'black' }}
+      backgroundColor="black"
+    >
+      <Text
+        fontSize="25px"
+        fontFamily="Dancing Script"
+        px={5}
+        color="teal"
+        _hover={{ color: 'gray' }}
+      >
+        Passport2Love
+      </Text>
+    </Button>
     
+    
+    <Flex alignItems="center" display={{ base: "none", md: "flex" }} justifyContent="flex-end" flex="1">
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
           <Button variant="ghost" color="white" onClick={onOpen} _hover={{ color: 'gray' }} _active={{ backgroundColor: 'black' }}>
             <i className="fas fa-search"></i>
-            <Text d={{ base: "none", md: "flex" }} px={2} marginTop="10px">
-              Search User
-            </Text>
+            <Text px={2} marginTop="10px">Search User</Text>
           </Button>
         </Tooltip>
   
@@ -216,33 +236,10 @@ const navigateToDashboard = () => {
           _active={{ backgroundColor: 'black' }}
         >
           <Text d={{ base: "none", md: "flex" }} px={4} marginTop="10px">
-            Go to Chats
+            Chats
           </Text>
         </Button>
       
-  
-      <Flex alignItems="center" justifyContent="center" flex="1" color="black">
-        <Button
-          variant="ghost"
-          onClick={navigateToDashboard}
-          ml={-24}
-          _active={{ backgroundColor: 'black' }}
-          _hover={{ backgroundColor: 'black' }}
-          backgroundColor="black"
-        >
-          <Text
-            fontSize="25px"
-            fontFamily="Dancing Script"
-            px={5}
-            color= 'white'
-            _hover={{ color: 'gray' }}
-            
-          >
-            Passport2Love
-          </Text>
-        </Button>
-      </Flex>
-  
   
         <Button
           variant="ghost"
@@ -260,8 +257,11 @@ const navigateToDashboard = () => {
             </Link>
           ) : null}
         </Button>
-  
+
+        </Flex>
+
         <div>
+        <Box display={{ base: "none", md: "block" }} position="relative">
           <Menu>
             <MenuButton p={1}>
             {notification.length > 0 && (
@@ -278,7 +278,7 @@ const navigateToDashboard = () => {
               {notification.length}
             </Badge>
           )}
-              <BellIcon fontSize="2xl" m={1} />
+              <BellIcon fontSize="2xl" m={1} display={{ base: "none", md: "flex" }} />
             </MenuButton>
             <MenuList color="purple" bg="white" pl={2}>
               {!notification.length && "No New Messages"}
@@ -301,6 +301,69 @@ const navigateToDashboard = () => {
               </MenuItem>
             </MenuList>
           </Menu>
+          </Box>
+      
+
+     
+         <Menu>
+          <MenuButton
+            as={Button}
+            rightIcon={<ChevronDownIcon />}
+            variant="ghost"
+            color="white"
+            _active={{ backgroundColor: "black", color: "black" }} 
+            _hover={{ backgroundColor: "black", color: "white" }} 
+            backgroundColor="black"
+            display={{ base: "flex", md: "none" }}
+         >
+           Menu
+         </MenuButton>
+   
+
+         <MenuList bg="white">
+           <MenuItem
+             onClick={onOpen}
+             _hover={{ backgroundColor: "gray.200" }} 
+              _active={{ backgroundColor: "black", color: "white" }} 
+             color="black" 
+            >
+             Search User
+           </MenuItem>
+           <MenuItem
+             onClick={navigateToChats}
+             _hover={{ backgroundColor: "gray.200" }}
+             _active={{ backgroundColor: "black", color: "white" }}
+             color="black"
+           >
+             Chats
+           </MenuItem>
+           <MenuItem
+             onClick={navigateToProfile}
+             _hover={{ backgroundColor: "gray.200" }}
+              _active={{ backgroundColor: "black", color: "white" }}
+             color="black"
+           >
+             View Profile
+            </MenuItem>
+            <MenuItem
+              onClick={navigateToEditProfile}
+              _hover={{ backgroundColor: "gray.200" }}
+              _active={{ backgroundColor: "black", color: "white" }}
+              color="black"
+            >
+             Edit Profile
+           </MenuItem>
+           <MenuItem
+             onClick={logoutHandler}
+             _hover={{ backgroundColor: "gray.200" }}
+             _active={{ backgroundColor: "black", color: "white" }}
+             color="black"
+            >
+             Logout
+           </MenuItem>
+          </MenuList>
+        </Menu>
+
         </div>
   
     </Flex>
