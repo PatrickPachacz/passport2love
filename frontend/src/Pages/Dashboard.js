@@ -8,7 +8,7 @@ import { useToast } from "@chakra-ui/toast";
 import ReactCountryFlag from 'react-country-flag';
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/react";
-import PopupModal from '../components/miscellaneous/PopupModal'; // Adjust import path
+import PopupModal from '../components/miscellaneous/PopupModal';
 
 export default function Dashboard() {
   const [search] = useState('');
@@ -167,7 +167,7 @@ export default function Dashboard() {
   };
 
   return (
-    <main>
+    <main style={{ overflowX: "hidden", width: "100%" }}>
       <div className="imageWrapper">
         <div style={{ width: "100%" }}>
           {user && <SideDrawer />}
