@@ -25,5 +25,6 @@ Readme: In process
     4. Editing of users profile page<br>
 </p>
 
-![dashboard](https://github.com/user-attachments/assets/c1358723-f190-47ae-abf3-982e9dd98420)
+![dashboard](https://github.com/user-attachments/assets/abad6ffc-1a37-4dd4-b8fb-45c162a64afd)
+
 
