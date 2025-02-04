@@ -179,7 +179,7 @@ export default function Dashboard() {
           <label className="labelMatches" htmlFor="gender">
             Select a gender:
           </label>
-          <select id="gender" value={gender} onChange={handleGenderChange}>
+          <select style={{ color:"black"}} id="gender" value={gender} onChange={handleGenderChange}>
             <option value="">Select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -191,10 +191,12 @@ export default function Dashboard() {
           </label>
           <button type="button" style={{
             border: "1px solid #000",
-            borderRadius: "5px",      
+            borderRadius: "5px", 
+            color: "black",     
+            backgroundColor: "white",
             padding: "5px 20px"      
           }} onClick={() => setIsModalOpen(true)}>
-            {country || "Select a country"}
+            {country || "Country"}
           </button>
 
           <label className="labelMatches" htmlFor="minAge">
@@ -205,7 +207,7 @@ export default function Dashboard() {
             id="minAge"
             value={minAge}
             onChange={handleMinAgeChange}
-            placeholder="Min Age"
+            placeholder="Min Age: 18+"
           />
 
           <label className="labelMatches" htmlFor="maxAge">
