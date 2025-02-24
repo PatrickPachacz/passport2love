@@ -177,7 +177,6 @@ function Profile() {
         <strong>Interested in: {genderPreference}</strong>
       </p>
 
-      {/* Message Button */}
       <Button
         colorScheme="blue"
         variant="outline"

@@ -22,7 +22,6 @@ const MyChats = () => {
 
       const { data } = await axios.get('https://passport2love.onrender.com/api/chat', config);
 
-      // Filter out chats marked as deleted
       const nonDeletedChats = data.filter((chat) => !chat.deleted);
     setChats(nonDeletedChats);
   } catch (error) {
@@ -48,12 +47,8 @@ const MyChats = () => {
           },
         };
   
-        // Mark the chat as deleted on the server
         await axios.delete(`https://passport2love.onrender.com/api/chat/${chatId}`, config);
-  
-        // Update the client-side state to reflect the deletion
-        const updatedChats = chats.filter((chat) => chat._id !== chatId); // Remove the deleted chat from the state
-  
+        const updatedChats = chats.filter((chat) => chat._id !== chatId);
         setChats(updatedChats);
   
         toast({
