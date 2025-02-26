@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.route("/").post(protect, accessChat);
 router.route("/").get(protect, fetchChats);
-router.route("/:chatId").delete(protect, deleteChat); // Use the DELETE method for deleting chats
+router.route("/:chatId").delete(protect, deleteChat); 
 
 module.exports = router;

@@ -72,15 +72,10 @@ const fetchChats = asyncHandler(async (req, res) => {
   });
 
 
-
-  // @desc    Mark Chat as Deleted
-// @route   PUT /api/chat/:chatId/delete
-// @access  Protected
 const deleteChat = asyncHandler(async (req, res) => {
   const { chatId } = req.params;
 
   try {
-    // Remove the chat from the database
     const deletedChat = await Chat.findByIdAndRemove(chatId);
 
     if (!deletedChat) {
@@ -98,7 +93,7 @@ const deleteChat = asyncHandler(async (req, res) => {
 module.exports = {
   accessChat,
   fetchChats,
-  deleteChat, // Replace markChatAsDeleted with deleteChat
+  deleteChat, 
 };
 
 
