@@ -2,12 +2,13 @@
 
 # About
 <p>Dating app deployed using netlify and render.</p>
+<p>You can access the website at: https://passport2love.com</p>
 
 # Landing Page
 <p>
-    Login / Signup built in component.<br>
-    Allows users to add information ranging from country of origin and age to their personal image and video.<br>
-    Brief information describing app outline and features to potential clients.
+    • Login / Signup built in component.<br>
+    • Allows users to add information ranging from country of origin and age to their personal image and video.<br>
+    • Brief information describing app outline and features to potential clients.
 </p>
 
 ![image](https://github.com/user-attachments/assets/186d4cf0-d490-4b94-8045-0beaeb67c6d2)
@@ -27,7 +28,7 @@
 ![dashboard](https://github.com/user-attachments/assets/47d93c78-581a-448a-beb0-5187415d5678)
 
 # Searching Users
-• Search users by certain criteria
+• Search users by certain criteria.
 
 ![searchuser](https://github.com/user-attachments/assets/fbc0e51e-7c48-488c-8ee6-fd5cea32833f)
 
